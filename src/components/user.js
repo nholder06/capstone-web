@@ -3,9 +3,10 @@ import { connect } from "react-redux";
 import * as actions from "../actions/user";
 
 const User = (props) => {
-  //  const [x, setX]= useState(0)
+//    const [x, setX]= useState(0)
+//     setX(5)
 
-    useEffect(() =>{
+    useEffect(() => {
 props.fetchAllUsers()
     }, [])
 
@@ -14,11 +15,11 @@ props.fetchAllUsers()
 }
 
 const mapStateToProps = state => ({
-        userList: state.User.list
+        userList: state.user.list
 })
 
-const mapActionstoProps ={
+const mapActiontoProps = {
     fetchAllUsers : actions.fetchAll
 }
 
-export default connect()(User);
+export default connect(mapStateToProps, mapActiontoProps)(User);
