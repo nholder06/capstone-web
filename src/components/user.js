@@ -1,10 +1,24 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
+import * as actions from "../actions/user";
 
 const User = (props) => {
+  //  const [x, setX]= useState(0)
+
+    useEffect(() =>{
+props.fetchAllUsers()
+    }, [])
+
     return (
-        <div>from user</div>
-    );
+        <div>from users</div>);
 }
 
-export default User;
+const mapStateToProps = state => ({
+        userList: state.User.list
+})
+
+const mapActionstoProps ={
+    fetchAllUsers : actions.fetchAll
+}
+
+export default connect()(User);
