@@ -1,5 +1,7 @@
-const userForm = (props) => {
-    return ( <div> from userForm</div>)
+import React from 'react';
+
+const UsersForm = (props) => {
+    return ( <div> from usersForm</div>)
 }
 
-export default usersform;
+export default UsersForm;
