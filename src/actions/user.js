@@ -8,7 +8,7 @@ export const ACTION_TYPES = {
     }
 
     export const fetchAll = () => dispatch => {
-    api.user().fetchAll()
+    api.users().fetchAll()
     .then(response => {
             console.log(response)
             dispatch({
