@@ -11,7 +11,6 @@ function App() {
     <Provider store = {store}>
       <Container maxWidth="lg"></Container>
       <User/>
-      <Usersform/>
       </Provider>
   );
 }
