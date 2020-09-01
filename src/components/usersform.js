@@ -52,8 +52,9 @@ const UsersForm = ({classes, ...props}) => {
 
 const handleSubmit = e => {
     e.preventDefault()
-    if(validate())
-    {window.alert('validation suceeded.')}
+    if(validate()) {
+        props.createUser(values, () => {window.alert("Success!")})
+    }
 }
 
     return (
