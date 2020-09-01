@@ -7,6 +7,11 @@ export const ACTION_TYPES = {
         FETCH_ALL : 'FETCH_ALL'
     }
 
+    const formatData = data => ({
+        ...data,
+        age:parseInt(data.age?data.age:0)
+    })
+
     export const fetchAll = () => dispatch => {
     api.users().fetchAll()
     .then(response => {

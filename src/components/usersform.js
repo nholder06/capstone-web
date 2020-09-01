@@ -52,11 +52,8 @@ const UsersForm = ({classes, ...props}) => {
 
 const handleSubmit = e => {
     e.preventDefault()
-    //console.log(values)
     if(validate())
-    {
-        window.alert('validation suceeded.')
-    }
+    {window.alert('validation suceeded.')}
 }
 
     return (

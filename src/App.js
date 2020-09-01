@@ -2,8 +2,7 @@ import React from 'react';
 import './App.css';
 import { store } from './actions/store';
 import { Provider } from 'react-redux';
-import User from './components/User'
-import Usersform from './components/Usersform'
+import User from './components/user'
 import { Container} from "@material-ui/core"
 
 function App() {
