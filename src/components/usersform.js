@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import { TextField, Grid, withStyles, FormControl, Select, MenuItem, Button } from '@material-ui/core';
 import useForm from './useForm'
+import { connect } from "react-redux";
+import * as actions from "../actions/user";
 
 
 const styles = theme => ({
@@ -109,4 +111,13 @@ const handleSubmit = e => {
     )
 }
 
-export default withStyles(styles)(UsersForm);
+const mapStateToProps = state => ({
+    userList: state.user.list
+})
+
+const mapActiontoProps = {
+    createUser : actions.create,
+    updateUser : actions.update
+}
+
+export default connect(mapStateToProps, mapActiontoProps)(withStyles(styles)(UsersForm));
