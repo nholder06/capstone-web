@@ -81,6 +81,9 @@ const handleSubmit = e => {
                     name="password"
                     variant="outlined"
                     label="Password"
+                    value={values.password}
+                    onChange={handleInputChange}
+                   // {...(errors.password && { error: true, helperText: errors.password})}
                     />
                     <FormControl variant="outlined" className={classes.formControl}>
                         <inputLabel>Pet Type</inputLabel>

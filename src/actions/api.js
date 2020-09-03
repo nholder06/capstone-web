@@ -3,7 +3,7 @@ import axios from "axios";
 const baseUrl = "http://localhost:63851/api/"
 
 export default {
-    users (url = baseUrl + 'users/'){
+    user (url = baseUrl + 'userLogin/register'){
         return {
             fetchAll: () => axios.get(url),
             fetchById: id => axios.get(url + id),

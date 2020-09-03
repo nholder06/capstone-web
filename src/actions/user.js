@@ -13,7 +13,7 @@ export const ACTION_TYPES = {
     })
 
     export const fetchAll = () => dispatch => {
-    api.users().fetchAll()
+    api.user().fetchAll()
     .then(response => {
             dispatch({
                 type : ACTION_TYPES.FETCH_ALL,
@@ -25,7 +25,7 @@ export const ACTION_TYPES = {
 
     export const create = (data, onSuccess) => dispatch => {
         data = formatData(data)
-        api.users().create(data)
+        api.user().create(data)
             .then(res => {
                 dispatch({
                     type: ACTION_TYPES.CREATE,
@@ -38,7 +38,7 @@ export const ACTION_TYPES = {
 
     export const update = (id, data, onSuccess) => dispatch => {
         data = formatData(data)
-        api.users().update(id, data)
+        api.user().update(id, data)
             .then(res => {
                 dispatch({
                     type: ACTION_TYPES.UPDATE,
@@ -50,7 +50,7 @@ export const ACTION_TYPES = {
         }
 
         export const Delete = (id, onSuccess) => dispatch => {
-            api.users().delete(id)
+            api.user().delete(id)
                 .then(res => {
                     dispatch({
                         type: ACTION_TYPES.DELETE,

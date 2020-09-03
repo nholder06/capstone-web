@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions/user";
-import { Grid, Paper, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, withStyles } from "@material-ui/core";
+import { Grid, Paper, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, withStyles, ButtonGroup, Button } from "@material-ui/core";
 import UsersForm from "./usersform";
+import EditIcon from "@material-ui/icons/Edit";
+import DeleteIcon from "@material-ui/icons/Delete";
 
 const styles = theme => ({
     root: {
@@ -37,6 +39,8 @@ props.fetchAllUsers()
                             <TableRow>
                                 <TableCell>Name</TableCell>
                                 <TableCell>Email</TableCell>
+                                <TableCell>
+                                </TableCell>
                             </TableRow>
                         </TableHead>
         <TableBody>
@@ -44,6 +48,12 @@ props.fetchAllUsers()
                 return (<TableRow key={index} hover>
                     <TableCell>{record.fullName}</TableCell>
                     <TableCell>{record.email}</TableCell>
+                    <TableCell>
+                    <ButtonGroup>
+                        <Button><EditIcon color="primary" /></Button>
+                        <Button><DeleteIcon color="secondry" /></Button>
+                    </ButtonGroup>
+                    </TableCell>
                 </TableRow>)
             })}
             </TableBody>
