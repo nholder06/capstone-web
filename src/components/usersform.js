@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { TextField, Grid, withStyles, FormControl, Select, MenuItem, Button } from '@material-ui/core';
-import useForm from './useForm'
+import UseForm from './UseForm'
 import { connect } from "react-redux";
 import * as actions from "../actions/user";
 
@@ -48,7 +48,7 @@ const UsersForm = ({classes, ...props}) => {
         errors,
         setErrors,
         handleInputChange
-    } = useForm(initialFieldValues, validate)
+    } = UseForm(initialFieldValues, validate)
 
 const handleSubmit = e => {
     e.preventDefault()

@@ -1,5 +1,3 @@
-
-
 export const userService = {
     login,
     logout,
@@ -13,7 +11,7 @@ function login(email, password) {
         body: JSON.stringify({email, password})
     };
     
-    return fetch('${config.apiUrl}/users/authenticate', requestOptions)
+    return fetch('${config.apiUrl}/userLogin/authenticate', requestOptions)
     .then(handleResponse)
     .then(user => {
         if (user) {
