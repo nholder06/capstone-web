@@ -24,6 +24,7 @@ class HomePage extends React.Component {
         const { user, users } = this.state;
         return (
             <div>
+            <div>
                 <h1>PetFriendly</h1>  
                 </div>          
                     <div className=''>
@@ -42,6 +43,7 @@ class HomePage extends React.Component {
                      <p>
                          <Link to='/login'>Logout</Link>
                      </p>
+                </div>
                 </div>
         );
     }
