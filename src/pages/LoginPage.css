@@ -1,0 +1,20 @@
+  .form {
+    justify-content: center;
+    margin: 20px;
+  }
+  .title {
+    color: purple;
+    margin: auto;
+  }
+  
+  .fieldInput {
+    margin-top: 200px;
+  }
+  .formlabel {
+    margin-right: 10px;
+    font-size: 24px;
+  }
+  
+  .help-block {
+    color: red;
+  }

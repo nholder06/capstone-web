@@ -1,6 +1,8 @@
 import React from 'react';
-import { userService} from '../services';
-import { Button } from '@material-ui/core';
+import { userService} from '../services/userService';
+import { Button, TextField, Container } from '@material-ui/core';
+import './LoginPage.css';
+
 
 class LoginPage extends React.Component {
     constructor(props) {
@@ -39,41 +41,44 @@ class LoginPage extends React.Component {
         userService.login(email, password)
         .then(
             user => {
-                const { from } = this.props.location.state || { from: { pathName: "/" } };
+                const { from } = this.props.location.state || { from: { pathName: "/userLogin/register" } };
                 this.props.history.push(from);
             },
 
-            error => this.setState({ error, loading: flase })
+            error => this.setState({ error, loading: false })
         );
     }
 
     render() {
         const { email, password, submitted, loading, error } = this.state;
         return(
-            <div>
-            <h2>Login</h2>
-            <form name='form' onSubmit={this.handleSubmit}>
+            <div classeName={'container'}>
+            <h1 className={'title'} >Welcome to Pet Friendly!</h1>
+            <p>Already have an account with us? Login.</p>
+            <form autoComplete="off" noValidate className={'form'} name='form' onSubmit={this.handleSubmit}>
                 <div classeName={'form-group' + (submitted && !email ? 'has error' : '')}>
-                    <label htmlFor='email'>Email Address</label>
-                    <input 
-                    type='email' 
-                    className='form-control'
-                    name='email'
+                    <label className={'formLabel'} htmlFor='email'>Email Address</label>
+                     <TextField
+                    type="email"
+                    className="fieldInput"
+                    name="email"
                     value={email}
+                    variant="outlined"
                     onChange={this.handleChange}
                     />
-                    {submitted && !username &&
+                    {submitted && !email &&
                     <div className='help-block'>Email Address is required.</div>
                     }
                 </div>
 
                 <div className={'form-group' + (submitted && !password ? 'hasError' : '')}>
                     <label htmlFor='password'>Password</label>
-                    <input
-                    type='password'
-                    className='form-control'
-                    name='password'
+                    <TextField
+                    type="password"
+                    className="fieldInput"
+                    name="password"
                     value={password}
+                    variant="outlined"
                     onChange={this.handleChange}
                     />
                     {submitted && !password &&

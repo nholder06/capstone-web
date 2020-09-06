@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions/user";
 import { Grid, Paper, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, withStyles, ButtonGroup, Button } from "@material-ui/core";
-import UsersForm from "./Usersform";
+import UserPetForm from "./UserPetForm";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 
@@ -30,7 +30,7 @@ props.fetchAllUsers()
         <Paper className={classes.paper} elevation={3}>
         {<Grid container>
             <Grid item xs={6}>
-                <UsersForm />
+                <UserPetForm />
             </Grid>
             <Grid item xs={6}>
                 <TableContainer>

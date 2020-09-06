@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { TextField, Grid, withStyles, FormControl, Select, MenuItem, Button } from '@material-ui/core';
-import UseForm from './UseForm'
+import UseForm from './UseForm';
 import { connect } from "react-redux";
 import * as actions from "../actions/user";
 
@@ -26,7 +26,7 @@ const initialFieldValues = {
     email: ''
 }
 
-const UsersForm = ({classes, ...props}) => {
+const UserPetForm = ({classes, ...props}) => {
 
     const validate = (fieldValues = values) => {
         let temp = {}
@@ -121,4 +121,4 @@ const mapActiontoProps = {
     updateUser : actions.update
 }
 
-export default connect(mapStateToProps, mapActiontoProps)(withStyles(styles)(UsersForm));
+export default connect(mapStateToProps, mapActiontoProps)(withStyles(styles)(UserPetForm));
