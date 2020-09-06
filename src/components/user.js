@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { connect } from "react-redux";
 import * as actions from "../actions/user";
 import { Grid, Paper, TableContainer, Table, TableHead, TableRow, TableCell, TableBody, withStyles, ButtonGroup, Button } from "@material-ui/core";
-import UserPetForm from "./UserPetForm";
+import UserPetForm from "../pages/UserPetForm";
 import EditIcon from "@material-ui/icons/Edit";
 import DeleteIcon from "@material-ui/icons/Delete";
 
@@ -19,9 +19,7 @@ const styles = theme => ({
 })
 
 const User = ({classes, ...props}) => {
-//    const [x, setX]= useState(0)
-//     setX(5)
-
+    
     useEffect(() => {
 props.fetchAllUsers()
     }, [])

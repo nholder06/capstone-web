@@ -1,6 +1,6 @@
 import React from 'react';
 import { userService} from '../services/userService';
-import { Button, TextField, Container } from '@material-ui/core';
+import { Button, TextField, withStyles, } from '@material-ui/core';
 import './LoginPage.css';
 
 
@@ -41,7 +41,7 @@ class LoginPage extends React.Component {
         userService.login(email, password)
         .then(
             user => {
-                const { from } = this.props.location.state || { from: { pathName: "/userLogin/register" } };
+                const { from } = this.props.location.state || { from: { pathName: "/" } };
                 this.props.history.push(from);
             },
 
@@ -53,14 +53,15 @@ class LoginPage extends React.Component {
         const { email, password, submitted, loading, error } = this.state;
         return(
             <div classeName={'container'}>
-            <h1 className={'title'} >Welcome to Pet Friendly!</h1>
-            <p>Already have an account with us? Login.</p>
-            <form autoComplete="off" noValidate className={'form'} name='form' onSubmit={this.handleSubmit}>
-                <div classeName={'form-group' + (submitted && !email ? 'has error' : '')}>
-                    <label className={'formLabel'} htmlFor='email'>Email Address</label>
+            <h1 className={'title'} >Welcome!</h1>
+            <p className={'title'}>Already have an account with us? Login.</p>
+            <p className={'register'}><em>Or register here.</em></p>
+            <form autoComplete="off" noValidate className={'form'} name='form-group' onSubmit={this.handleSubmit}>
+               
+                <div className={'form-group' + (submitted && !email ? 'has error' : '')}>
+                    <label htmlFor='email'>Email Address</label>
                      <TextField
                     type="email"
-                    className="fieldInput"
                     name="email"
                     value={email}
                     variant="outlined"
@@ -75,7 +76,6 @@ class LoginPage extends React.Component {
                     <label htmlFor='password'>Password</label>
                     <TextField
                     type="password"
-                    className="fieldInput"
                     name="password"
                     value={password}
                     variant="outlined"

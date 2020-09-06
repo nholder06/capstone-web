@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { TextField, Grid, withStyles, FormControl, Select, MenuItem, Button } from '@material-ui/core';
-import UseForm from './UseForm';
+import UseForm from '../components/UseForm';
 import { connect } from "react-redux";
 import * as actions from "../actions/user";
 
@@ -85,8 +85,8 @@ const handleSubmit = e => {
                     onChange={handleInputChange}
                    // {...(errors.password && { error: true, helperText: errors.password})}
                     />
-                    <FormControl variant="outlined" className={classes.formControl}>
-                        <inputLabel>Pet Type</inputLabel>
+                    {/* <FormControl variant="outlined" className={classes.formControl}>
+                        <input>Pet Type</input>
                         <Select
                         name="petType"
                         //value={values.petType}
@@ -95,8 +95,8 @@ const handleSubmit = e => {
                             <MenuItem>Select Pet Type</MenuItem>
                             <MenuItem>Dog</MenuItem>
                             <MenuItem>Cat</MenuItem>
-                        </Select>
-                    </FormControl>
+                        </Select> */}
+                    {/* </FormControl> */}
                     <div>
                         <Button
                         variant="contained"
