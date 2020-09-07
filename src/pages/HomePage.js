@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { userService } from '../services/userService'
+import React from "react";
+import { Link } from "react-router-dom";
+import { userService } from "../reducers/userService";
 
 class HomePage extends React.Component {
     constructor(props) {

@@ -1,7 +1,7 @@
-import React from 'react';
-import { userService} from '../services/userService';
-import { Button, TextField, withStyles, } from '@material-ui/core';
-import './LoginPage.css';
+import React from "react";
+import { userService } from "../reducers/userService";
+import { Button, TextField } from "@material-ui/core";
+import "../styles/LoginPage.css";
 
 
 class LoginPage extends React.Component {
@@ -39,10 +39,10 @@ class LoginPage extends React.Component {
 
         this.setState({ loading: true });
         userService.login(email, password)
-        .then(
-            user => {
-                const { from } = this.props.location.state || { from: { pathName: "/" } };
-                this.props.history.push(from);
+            .then(
+              user => {
+                 const { from } = this.props.location.state || { from: { pathName: "/" } };
+                 this.props.history.push(from);
             },
 
             error => this.setState({ error, loading: false })
@@ -52,15 +52,15 @@ class LoginPage extends React.Component {
     render() {
         const { email, password, submitted, loading, error } = this.state;
         return(
-            <div classeName={'container'}>
+            <div className={'container'}>
             <h1 className={'title'} >Welcome!</h1>
             <p className={'title'}>Already have an account with us? Login.</p>
             <p className={'register'}><em>Or register here.</em></p>
             <form autoComplete="off" noValidate className={'form'} name='form-group' onSubmit={this.handleSubmit}>
                
                 <div className={'form-group' + (submitted && !email ? 'has error' : '')}>
-                    <label htmlFor='email'>Email Address</label>
-                     <TextField
+                    <TextField
+                    label="Email Address"
                     type="email"
                     name="email"
                     value={email}
@@ -73,8 +73,8 @@ class LoginPage extends React.Component {
                 </div>
 
                 <div className={'form-group' + (submitted && !password ? 'hasError' : '')}>
-                    <label htmlFor='password'>Password</label>
                     <TextField
+                    label="Password"
                     type="password"
                     name="password"
                     value={password}
@@ -92,7 +92,10 @@ class LoginPage extends React.Component {
                         color="primary"
                         type="submit"
                         className='submitButton'
-                        disable={loading}>Login</Button>
+                        disabled={loading}>Login</Button>
+                        {loading &&
+                        <img src = "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                        }
                      </div>
                      {error &&
                      <div className='danger'>{error}</div>

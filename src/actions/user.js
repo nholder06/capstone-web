@@ -1,4 +1,6 @@
-import api from "./api";
+import  { userUrl }  from "./api";
+
+
 
 export const ACTION_TYPES = {
         CREATE : 'CREATE',
@@ -13,11 +15,11 @@ export const ACTION_TYPES = {
     })
 
     export const fetchAll = () => dispatch => {
-    api.user().fetchAll()
+    userUrl.user().fetchAll()
     .then(response => {
             dispatch({
                 type : ACTION_TYPES.FETCH_ALL,
-                payload: response.data
+                payload : response.data
             })
         })
     .catch(err => console.log(err))
@@ -25,7 +27,7 @@ export const ACTION_TYPES = {
 
     export const create = (data, onSuccess) => dispatch => {
         data = formatData(data)
-        api.user().create(data)
+        userUrl.user().create(data)
             .then(res => {
                 dispatch({
                     type: ACTION_TYPES.CREATE,
@@ -38,7 +40,7 @@ export const ACTION_TYPES = {
 
     export const update = (id, data, onSuccess) => dispatch => {
         data = formatData(data)
-        api.user().update(id, data)
+        userUrl.user().update(id, data)
             .then(res => {
                 dispatch({
                     type: ACTION_TYPES.UPDATE,
@@ -50,7 +52,7 @@ export const ACTION_TYPES = {
         }
 
         export const Delete = (id, onSuccess) => dispatch => {
-            api.user().delete(id)
+            userUrl.user().delete(id)
                 .then(res => {
                     dispatch({
                         type: ACTION_TYPES.DELETE,

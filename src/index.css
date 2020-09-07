@@ -1,8 +1,9 @@
-@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik&display=swap');
+
 
 body {
   margin: 0;
-  font-family: 'Source Sans Pro', sans-serif;
+  font-family: 'Rubik', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -10,4 +11,27 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  font-size: calc(30px + 2vmin);
+  color: white;
+  min-height: 15vh;
+  padding-top: 50px;
+  padding-left: 20px;
+}
+
+.nav {
+  background-color: #282c34;
+  color: white;
+  align-items: right;
+}
+
+.visibility-hidden {
+  visibility: hidden;
 }
