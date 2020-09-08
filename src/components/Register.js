@@ -1,9 +1,8 @@
 import React from "react";
+import UseForm from "../components/UseForm";
 import { TextField, Grid, withStyles, Button } from "@material-ui/core";
-import  UseForm  from "../components/UseForm";
 import { connect } from "react-redux";
 import * as actions from "../actions/user";
-
 
 const styles = theme => ({
     root: {
@@ -23,42 +22,52 @@ const styles = theme => ({
 
 const initialFieldValues = {
     fullName: '',
-    email: ''
+    email: '',
+    password: ''
 }
 
-const UserPetForm = ({classes, ...props}) => {
+const Register = ({classes, ...props}) => {
 
     const validate = (fieldValues = values) => {
+        
         let temp = {}
-        if('fullName' in fieldValues)
+        if("fullName" in fieldValues){
             temp.fullName = fieldValues.fullName?"":"Required."
-        if('email' in fieldValues)
-            temp.email = fieldValues.email?"":"Required."
-            temp.email = (/^$|.+@.+...+/).test(fieldValues.email)?"":"Not valid email."
-        setErrors({
-            ...temp
-        })
-    if(fieldValues === values)
-        return Object.values(temp).every(x=> x==="")
-    }
+        }
+        if("email" in fieldValues){
+            temp.email = (/^$|.+@.+...+/).test(fieldValues.email)?"":"Not valid email. Required."
+        }
+        if("password" in fieldValues){
+            temp.password = fieldValues.password?"":"Required."
+        }
+            setErrors({
+                ...temp
+            })
+        if(fieldValues === values)
+            return Object.values(temp).every(x => x === "")
+        }
 
-    const {
-        values,
-        setValues,
-        errors,
-        setErrors,
-        handleInputChange
-    } = UseForm(initialFieldValues, validate)
+        const {
+            values,
+            setValues, 
+            errors,
+            setErrors,
+            handleInputChange
+        } = UseForm(initialFieldValues, validate)
 
-const handleSubmit = e => {
-    e.preventDefault()
-    if(validate()) {
-        props.createUser(values, () => {window.alert("Success!")})
-    }
-}
+        const handleSubmit = e => {
+            e.preventDefault()
+            if(validate()) {
+                props.createUser(values, () => {window.alert("Success!")})
+            }
+        }
 
-    return (
-        <form autoComplete="off" noValidate className={classes.root} onSubmit={handleSubmit}>
+ return (
+           <div>
+            <div>
+                <h1 className={'title'}>Create an account with us.</h1>
+            </div>
+            <form autoComplete="off" noValidate className={classes.root} onSubmit={handleSubmit}>
             <Grid container>
                 <Grid item xs={6}>
                     <TextField
@@ -83,20 +92,8 @@ const handleSubmit = e => {
                     label="Password"
                     value={values.password}
                     onChange={handleInputChange}
-                   // {...(errors.password && { error: true, helperText: errors.password})}
+                    {...(errors.password && { error: true, helperText: errors.password})}
                     />
-                    {/* <FormControl variant="outlined" className={classes.formControl}>
-                        <input>Pet Type</input>
-                        <Select
-                        name="petType"
-                        //value={values.petType}
-                       // onChange={handleInputChange}
-                        >
-                            <MenuItem>Select Pet Type</MenuItem>
-                            <MenuItem>Dog</MenuItem>
-                            <MenuItem>Cat</MenuItem>
-                        </Select> */}
-                    {/* </FormControl> */}
                     <div>
                         <Button
                         variant="contained"
@@ -108,17 +105,18 @@ const handleSubmit = e => {
                     </div>
                 </Grid>
             </Grid>
-        </form>
-    )
-}
+            </form>
+</div>           
+        )
+    }
 
-const mapStateToProps = state => ({
-    userList: state.user.list
-})
+    const mapStateToProps = state => ({
+        userList: state.user.list
+    })
 
-const mapActiontoProps = {
-    createUser : actions.create,
-    updateUser : actions.update
-}
+    const mapActiontoProps = {
+        createUser : actions.create,
+        updateUser : actions.update
+    }
 
-export default connect(mapStateToProps, mapActiontoProps)(withStyles(styles)(UserPetForm));
+    export default connect(mapStateToProps, mapActiontoProps)(withStyles(styles)(Register));

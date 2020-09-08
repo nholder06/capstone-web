@@ -51,7 +51,7 @@ export const update = (id, data, onSuccess) => dispatch => {
 
 export const Delete = (id, onSuccess) => dispatch => {
     petUrl.pet().delete(id)
-    .then(re=> {
+    .then(res=> {
         dispatch({
             type: ACTION_TYPES.DELETE,
             payload: id
