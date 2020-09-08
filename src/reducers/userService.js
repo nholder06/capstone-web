@@ -1,6 +1,11 @@
 import  config  from "../webpack.config";
 import { authHeader } from "../helpers/auth-header"
 
+
+
+const baseUrl = "http://localhost:63851/api/"
+
+
 export const userService = {
     login,
     logout,
@@ -14,7 +19,7 @@ function login(email, password) {
         body: JSON.stringify({email, password})
     };
     
-    return fetch('${config.apiUrl}/userLogin/authenticate', requestOptions)
+    return fetch(baseUrl + 'userLogin/authenticate', requestOptions)
     .then(handleResponse)
     .then(user => {
         if (user) {

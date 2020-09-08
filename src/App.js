@@ -12,8 +12,7 @@ import { HomePage } from '../src/pages/HomePage';
 import { LoginPage } from '../src/pages/LoginPage';
 import { Header } from '../src/components/Header';
 import  Register  from '../src/components/Register';
-import  User  from '../src/components/User';
-import  UserPetForm from '../src/pages/UserPetForm';
+import User from '../src/components/User';
 import  './index.css';
 
 
@@ -26,16 +25,13 @@ class App extends React.Component {
         <div>
          <Container maxWidth="lg"></Container>
            <Header />
-            {/* <Register /> */}
             <Router>
                <div>
                <Switch>
-               <Route path='/userLogin/Register' component={ Register } />
-                <Register /> 
                  <PrivateRoute exact path='/' component = { HomePage } /> 
                   <Route path='/login' component= { LoginPage } />
-                 <LoginPage />
                  </Switch>
+                 <Register />
               </div>
             </Router>
       </div> 
