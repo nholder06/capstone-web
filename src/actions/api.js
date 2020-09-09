@@ -10,6 +10,7 @@ const userUrl = {
         return {
             fetchAll: () => axios.get(url),
             fetchById: id => axios.get(url + id),
+            authenticate: () => axios.post(baseUrl + "userLogin/authenticate"),
             create: newRecord => axios.post(baseUrl + "userLogin/register", newRecord),
             update: (id, updatedRecord) => axios.put(url + id, updatedRecord),
             delete: id => axios.delete (url + id)

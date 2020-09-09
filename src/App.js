@@ -1,19 +1,12 @@
 import React from 'react';
-import { BrowserRouter as Router,
-         Switch,
-         Route,
-         Link 
-        } from 'react-router-dom';
+import { BrowserRouter } from 'react-router-dom';
 import { store } from './actions/store';
 import { Provider } from 'react-redux';
-import { Container} from '@material-ui/core';
-import { PrivateRoute } from '../src/components/PrivateRoute';
-import { HomePage } from '../src/pages/HomePage';
-import { LoginPage } from '../src/pages/LoginPage';
 import { Header } from '../src/components/Header';
-import  Register  from '../src/components/Register';
-import User from '../src/components/User';
 import  './index.css';
+import AuthDataProvider from './reducers/AuthDataContext';
+import Router from '../src/components/Router';
+import LoginPage from './pages/LoginPage';
 
 
 
@@ -22,19 +15,15 @@ class App extends React.Component {
   render() {
      return (
        <Provider store={store}>
+       <BrowserRouter>
+       <AuthDataProvider>
         <div>
-         <Container maxWidth="lg"></Container>
            <Header />
-            <Router>
-               <div>
-               <Switch>
-                 <PrivateRoute exact path='/' component = { HomePage } /> 
-                  <Route path='/login' component= { LoginPage } />
-                 </Switch>
-                 <Register />
-              </div>
-            </Router>
+              <Router />
+              
       </div> 
+      </AuthDataProvider>
+      </BrowserRouter>
     </Provider>
   );
 }

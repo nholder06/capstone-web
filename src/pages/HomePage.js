@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { userService } from "../reducers/userService";
+import { userUrl } from "../actions/api";
 
 class HomePage extends React.Component {
     constructor(props) {
@@ -10,14 +10,14 @@ class HomePage extends React.Component {
             user: {},
             users: []
         };
-    }
+    };
 
     componentDidMount() {
         this.setState({
             user: JSON.parse(localStorage.getItem('user')),
             users: { loading: true }
         });
-        userService.getAll().then(users => this.setState({ users }));
+        userUrl.getAll().then(users => this.setState({ users }));
     }
 
     render() {
@@ -49,4 +49,4 @@ class HomePage extends React.Component {
     }
 }
 
-export { HomePage };
+export default { HomePage }
