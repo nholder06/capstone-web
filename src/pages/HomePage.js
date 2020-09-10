@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+import * as actions from "../actions/user";
 import { userUrl } from "../actions/api";
+import { render } from "@testing-library/react";
 
-class HomePage extends React.Component {
+class HomePage extends React.Component{
     constructor(props) {
         super(props);
 
@@ -10,7 +13,7 @@ class HomePage extends React.Component {
             user: {},
             users: []
         };
-    };
+    }
 
     componentDidMount() {
         this.setState({
@@ -20,33 +23,26 @@ class HomePage extends React.Component {
         userUrl.getAll().then(users => this.setState({ users }));
     }
 
-    render() {
-        const { user, users } = this.state;
+render(){
+    const { user, users } = this.state;
         return (
             <div>
-            <div>
-                <h1>PetFriendly</h1>  
-                </div>          
-                    <div className=''>
              <h2>Hello, {user.fullName}!</h2>
              <h3>Check out who else is using PetFriendly: </h3>
-                {users.loading && <em> Loading users...</em>}
+             {users.loading && <em>Loading users...</em>}
                 {users.length &&
-                 <ul>
-                     {users.map((user, index) =>
-                     <li key={user.id}>
-                         {user.fullName}
-                     </li>
-                     )}
-                     </ul>
-                     }
-                     <p>
-                         <Link to='/login'>Logout</Link>
-                     </p>
-                </div>
+                    <ul>
+                        {users.map((user, index) =>
+                            <li key={user.id}>
+                                {user.fullName}
+                            </li>
+                        )}
+                    </ul>
+                }
+    
                 </div>
         );
     }
 }
 
-export default { HomePage }
+export default HomePage;

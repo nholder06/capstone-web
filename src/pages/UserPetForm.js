@@ -26,7 +26,7 @@ const initialFieldValues = {
     email: ''
 }
 
-const UserPetForm = ({classes, ...props}) => {
+function UserPetForm({classes, ...props}) {
 
     const validate = (fieldValues = values) => {
         let temp = {}

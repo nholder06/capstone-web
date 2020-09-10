@@ -26,7 +26,7 @@ const initialFieldValues = {
     password: ''
 }
 
-const Register = ({classes, ...props}) => {
+function Register({classes, ...props}) {
 
     const validate = (fieldValues = values) => {
         
@@ -62,7 +62,7 @@ const Register = ({classes, ...props}) => {
             }
         }
 
- return (
+         return (
            <div>
             <div>
                 <h1 className={'title'}>Create an account with us.</h1>
@@ -107,7 +107,7 @@ const Register = ({classes, ...props}) => {
             </Grid>
             </form>
 </div>           
-        )
+        );
     }
 
     const mapStateToProps = state => ({

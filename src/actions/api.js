@@ -1,6 +1,6 @@
-import axios from "axios";
-import { user } from "../reducers/user";
-import { pet } from "../reducers/pet";
+import axios from 'axios';
+import { user } from '../reducers/user';
+import pet from '../reducers/pet';
 
 
 const baseUrl = "http://localhost:63851/api/"

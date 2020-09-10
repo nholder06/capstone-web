@@ -1,178 +1,110 @@
 import React, { useRef, useState } from "react";
-import { useAuthDataContext } from "../reducers/AuthDataContext";
-import { userUrl } from "../actions/api";
+import AuthDataProvider from "../reducers/AuthDataContext";
 import { Button, TextField } from "@material-ui/core";
 import "../styles/LoginPage.css";
 import { Link } from 'react-router-dom';
 
 
-// class LoginPage extends React.Component {
-//     constructor(props) {
-//         super(props);
+class LoginPage extends React.Component {
+    constructor(props) {
+        super(props);
 
-//         userService.logout();
+       AuthDataProvider.logout();
 
-//         this.state = {
-//             email: '',
-//             password: '',
-//             submitting: false,
-//             loading: false,
-//             error: ''
-//         };
-
-//         this.handleChange = this.handleChange.bind(this);
-//         this.handleSubmit = this.handleSubmit.bind(this);
-//     }
-
-//     handleChange(e) {
-//         const { name, value } = e.target;
-//         this.setState({ [name]: value});
-//     }
-
-//     handleSubmit(e) {
-//         e.preventDefault();
-
-//         this.setState({ submitted: true });
-//         const { email, password, returnUrl } = this.state;
-
-//         if (!(email && password)) {
-//             return;
-//         }
-
-//         this.setState({ loading: true });
-//         userService.login(email, password)
-//             .then(
-//               user => {
-//                  const { from } = this.props.location.state || { from: { pathName: "/" } };
-//                  this.props.history.push(from);
-//             },
-
-//             error => this.setState({ error, loading: false })
-//         );
-//     }
-
-// // const LoginPage = () => {
-// //     const { onLogin } = 
-// // }
-
-//     render() {
-//         const { email, password, submitted, loading, error } = this.state;
-//         return(
-//             <div className={'container'}>
-//             <h1 className={'title'} >Welcome!</h1>
-//             <p className={'title'}>Already have an account with us? Login.</p>
-//             <p className={'register'}><Link to="/register">Or register here.</Link></p>
-//             <form autoComplete="off" noValidate className={'form'} name='form-group' onSubmit={this.handleSubmit}>
-               
-//                 <div className={'form-group' + (submitted && !email ? 'has error' : '')}>
-//                     <TextField
-//                     label="Email Address"
-//                     type="email"
-//                     name="email"
-//                     value={email}
-//                     variant="outlined"
-//                     onChange={this.handleChange}
-//                     />
-//                     {submitted && !email &&
-//                     <div className='help-block'>Email Address is required.</div>
-//                     }
-//                 </div>
-
-//                 <div className={'form-group' + (submitted && !password ? 'hasError' : '')}>
-//                     <TextField
-//                     label="Password"
-//                     type="password"
-//                     name="password"
-//                     value={password}
-//                     variant="outlined"
-//                     onChange={this.handleChange}
-//                     />
-//                     {submitted && !password &&
-//                     <div className='help-block'>Password is required.</div>
-//                     }
-//                      </div>
-
-//                      <div className='form-group'>
-//                      <Button
-//                         variant="contained"
-//                         color="primary"
-//                         type="submit"
-//                         className='submitButton'
-//                         disabled={loading}>Login</Button>
-//                         {loading &&
-//                         <img src = "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
-//                         }
-//                      </div>
-//                      {error &&
-//                      <div className='danger'>{error}</div>
-//                         }
-//             </form>
-//             </div>
-//         );
-//     }
-// }
-
-const LoginPage = () => {
-    const { onLogin } = useAuthDataContext();
-
-    const [error, setError] = useState(null);
-
-    const email = useRef();
-    const password = useRef();
-
-    const handleSubmit = () => {
-        const currentFormValue = {
-            email: email.current.value,
-            password: password.current.value,
+        this.state = {
+            email: '',
+            password: '',
+            submitting: false,
+            loading: false,
+            error: ''
         };
 
-        userUrl.authenticate(currentFormValue).then(onLogin).catch(setError);
-    };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+    }
 
-    return (
-        <div>
+    handleChange(e) {
+        const { name, value } = e.target;
+        this.setState({ [name]: value});
+    }
+
+    handleSubmit(e) {
+        e.preventDefault();
+
+        this.setState({ submitted: true });
+        const { email, password, returnUrl } = this.state;
+
+        if (!(email && password)) {
+            return;
+        }
+
+        this.setState({ loading: true });
+        AuthDataProvider.login(email, password)
+            .then(
+              user => {
+                 const { from } = this.props.location.state || { from: { pathName: "/" } };
+                 this.props.history.push(from);
+            },
+
+            error => this.setState({ error, loading: false })
+        );
+    }
+
+    render() {
+        const { email, password, submitted, loading, error } = this.state;
+        return(
+            <div className={'container'}>
             <h1 className={'title'} >Welcome!</h1>
-                <p className={'title'}>Already have an account with us? Login.</p>
-                <p className={'register'}><Link to="/register">Or register here.</Link></p>
-
-        <form autoComplete="off" noValidate className={'form-group'}>
+            <p className={'title'}>Already have an account with us? Login.</p>
+            <p className={'register'}><Link to="/register">Or register here.</Link></p>
+            <form autoComplete="off" noValidate className={'form'} name='form-group' onSubmit={this.handleSubmit}>
                
-               <div className={'form-group'}>
-                     <TextField
+                <div className={'form-group' + (submitted && !email ? 'has error' : '')}>
+                    <TextField
                     label="Email Address"
                     type="email"
                     name="email"
-                    ref={email}
+                    value={email}
                     variant="outlined"
                     onChange={this.handleChange}
                     />
-                    </div>
-                
-                 <div className={'form-group'}>
-                     <TextField
+                    {submitted && !email &&
+                    <div className='help-block'>Email Address is required.</div>
+                    }
+                </div>
+
+                <div className={'form-group' + (submitted && !password ? 'hasError' : '')}>
+                    <TextField
                     label="Password"
                     type="password"
                     name="password"
-                    ref={password}
+                    value={password}
                     variant="outlined"
                     onChange={this.handleChange}
                     />
-                    </div>
-           
-                <div className='form-group'>
+                    {submitted && !password &&
+                    <div className='help-block'>Password is required.</div>
+                    }
+                     </div>
+
+                     <div className='form-group'>
                      <Button
-                        onClick={handleSubmit}
                         variant="contained"
                         color="primary"
                         type="submit"
-                        className='submitButton'>
-                        Login
-                        </Button>
+                        className='submitButton'
+                        disabled={loading}>Login</Button>
+                        {loading &&
+                        <img src = "data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA=="/>
+                        }
                      </div>
-
+                     {error &&
+                     <div className='danger'>{error}</div>
+                        }
             </form>
             </div>
-    );
-};
+        );
+    }
+}
 
-export default { LoginPage };
+export default LoginPage;
