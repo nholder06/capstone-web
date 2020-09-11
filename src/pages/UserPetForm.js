@@ -1,20 +1,20 @@
 import React from "react";
-import { TextField, Grid, withStyles, Button } from "@material-ui/core";
+import { Grid, FormControl, Select, MenuItem, TextField, withStyles, Button } from "@material-ui/core";
 import  UseForm  from "../components/UseForm";
 import { connect } from "react-redux";
-import * as actions from "../actions/user";
+import * as actions from "../actions/pet";
 
 
 const styles = theme => ({
     root: {
     '& .MuiTextField-root' : {
-        margin: theme.spacing(1),
-        minWidth: 230,
+        margin: theme.spacing(3),
+        minWidth: 250,
         }
     },
     formControl: {
-    margin: theme.spacing(1),
-        minWidth: 230,
+    margin: theme.spacing(3),
+        minWidth: 250,
         },
         smMargin:{
             margin: theme.spacing(1),
@@ -22,103 +22,183 @@ const styles = theme => ({
 })
 
 const initialFieldValues = {
-    fullName: '',
-    email: ''
+   name: '',
+   type: '',
+   age: '',
+   birthday: '',
+   breed: '',
+   commands: '',
+   likes: '',
+   dislikes: '',
+   routines: '',
+   preferredVet: '',
+   vetPhoneNum: '',
+   notes: ''
 }
 
 function UserPetForm({classes, ...props}) {
-
+    
     const validate = (fieldValues = values) => {
-        let temp = {}
-        if('fullName' in fieldValues)
-            temp.fullName = fieldValues.fullName?"":"Required."
-        if('email' in fieldValues)
-            temp.email = fieldValues.email?"":"Required."
-            temp.email = (/^$|.+@.+...+/).test(fieldValues.email)?"":"Not valid email."
-        setErrors({
-            ...temp
-        })
+
+    let temp={}
+
+    if('name' in fieldValues){
+        temp.name = fieldValues.name?"":'Required.' 
+        }
+        if('type' in fieldValues){
+            temp.type = fieldValues.type?"":'Required.'
+                }
+                setErrors({
+                    ...temp
+                })
+                
     if(fieldValues === values)
-        return Object.values(temp).every(x=> x==="")
+    return Object.values(temp).every(x => x === "")
     }
 
     const {
         values,
-        setValues,
-        errors,
+        errors, 
         setErrors,
         handleInputChange
     } = UseForm(initialFieldValues, validate)
 
 const handleSubmit = e => {
     e.preventDefault()
-    if(validate()) {
-        props.createUser(values, () => {window.alert("Success!")})
+        props.createPet(values, () => {window.alert("Success!")})
     }
-}
 
     return (
-        <form autoComplete="off" noValidate className={classes.root} onSubmit={handleSubmit}>
-            <Grid container>
+        <div>
+        <FormControl autoComplete="off" noValidate className={classes.root} onSubmit={handleSubmit}>
+
+                <Grid container>
                 <Grid item xs={6}>
                     <TextField
-                    name="fullName"
+                    name="name"
                     variant="outlined"
-                    label="Full Name"
-                    value={values.fullName}
+                    label="Name"
+                    value={values.name}
                     onChange={handleInputChange}
-                    {...(errors.fullName && { error: true, helperText: errors.fullName})}
+                    {...(errors.name && { error: true, helperText: errors.name})}
                     />
+
+                    <Select
+                    name="petType"
+                    value={values.type}
+                    onChange={handleInputChange}
+                    {...(errors.type && { error: true, helperText: errors.type})}>   
+                    
+                    <MenuItem>Select Pet Type</MenuItem>
+                    <MenuItem>Dog</MenuItem>
+                    <MenuItem>Cat</MenuItem>
+                    </Select>
+            
                     <TextField
-                    name="email"
+                    name="age"
                     variant="outlined"
-                    label="Email Address"
-                    value={values.email}
+                    label="Age"
+                    value={values.age}
                     onChange={handleInputChange}
-                    {...(errors.email && { error: true, helperText: errors.email})}
                     />
+
                     <TextField
-                    name="password"
+                    name="birthday"
                     variant="outlined"
-                    label="Password"
-                    value={values.password}
+                    label="Birthday"
+                    value={values.birthday}
                     onChange={handleInputChange}
-                   // {...(errors.password && { error: true, helperText: errors.password})}
                     />
-                    {/* <FormControl variant="outlined" className={classes.formControl}>
-                        <input>Pet Type</input>
-                        <Select
-                        name="petType"
-                        //value={values.petType}
-                       // onChange={handleInputChange}
-                        >
-                            <MenuItem>Select Pet Type</MenuItem>
-                            <MenuItem>Dog</MenuItem>
-                            <MenuItem>Cat</MenuItem>
-                        </Select> */}
-                    {/* </FormControl> */}
+
+                    <TextField
+                    name="breed"
+                    variant="outlined"
+                    label="Breed"
+                    value={values.breed}
+                    onChange={handleInputChange}
+                    />
+
+                    <TextField
+                    name="commands"
+                    variant="outlined"
+                    label="Commands"
+                    value={values.commands}
+                    onChange={handleInputChange}
+                    />
+
+                    <TextField
+                    name="likes"
+                    variant="outlined"
+                    label="Likes"
+                    value={values.likes}
+                    onChange={handleInputChange}
+                    />
+
+                    <TextField
+                    name="dislikes"
+                    variant="outlined"
+                    label="Dislikes"
+                    value={values.dislikes}
+                    onChange={handleInputChange}
+                    />
+
+                    <TextField
+                    name="routines"
+                    variant="outlined"
+                    label="Routines"
+                    value={values.routines}
+                    onChange={handleInputChange}
+                    />
+
+                    <TextField
+                    name="prefVet"
+                    variant="outlined"
+                    label="Preferred Veternarian"
+                    value={values.preferredVet}
+                    onChange={handleInputChange}
+                    />
+
+                    <TextField
+                    name="vetPhoneNum"
+                    variant="outlined"
+                    label="Preferred Veternarian's Phone Number"
+                    value={values.vetPhoneNum}
+                    onChange={handleInputChange}
+                    />
+
+                    <TextField
+                    name="notes"
+                    variant="outlined"
+                    label="Notes"
+                    value={values.notes}
+                    onChange={handleInputChange}
+                    multiLine
+                    rows={5}
+                    />
+
                     <div>
                         <Button
                         variant="contained"
                         color="primary"
                         type="submit"
                         className={classes.smMargin}>
-                             Create Account
+                             Add Pet
                         </Button>
                     </div>
                 </Grid>
             </Grid>
-        </form>
-    )
+        </FormControl>
+        </div>
+    );
 }
 
 const mapStateToProps = state => ({
-    userList: state.user.list
+    petList: state.pet.list
 })
 
 const mapActiontoProps = {
-    createUser : actions.create,
-    updateUser : actions.update
+    createPet : actions.create
+    // updatePet : actions.update
 }
 
 export default connect(mapStateToProps, mapActiontoProps)(withStyles(styles)(UserPetForm));

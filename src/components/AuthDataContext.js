@@ -1,7 +1,4 @@
 import { authHeader } from "../helpers/auth-header"
-import React, { createContext, useState, useEffect, useMemo, useContext } from "react";
-
-
 
 const baseUrl = "http://localhost:63851/api/"
 
@@ -40,7 +37,7 @@ function getAll() {
         headers: authHeader()
     };
     
-    return fetch('${config.apiUrl}/users', requestOptions).then(handleResponse);
+    return fetch('${/user', requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {
@@ -59,31 +56,5 @@ function handleResponse(response) {
         return data;
     });
 }
-
-
-// export const AuthDataContext = createContext(null);
-
-// const initialAuthData = {};
-
-// const AuthDataProvider = props => {
-//     const [authData, setAuthData] = useState(initialAuthData);
-
-//     useEffect(() => {
-//         const currentAuthData = authHeader();
-//         if(currentAuthData) {
-//             setAuthData(currentAuthData);
-//         }
-//     }, []);
-
-//     const onLogout = () => setAuthData(initialAuthData);
-
-//     const onLogin = newAuthData => setAuthData(newAuthData);
-
-//     // const authDataValue = useMemo({ ...authData, onLogin, onLogout }, [authData]);
-
-// return <AuthDataContext.Provider value = {{ ...authData, onLogin, onLogout }} {...props} />;
-// };
-
-// export const useAuthDataContext = () => useContext(AuthDataContext);
 
 export default AuthDataProvider;

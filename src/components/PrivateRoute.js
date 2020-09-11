@@ -1,8 +1,5 @@
-import React, { Component } from "react";
+import React from "react";
 import { Route, Redirect } from "react-router-dom";
-import { useAuthDataContext } from "../reducers/AuthDataContext";
-import LoginPage from "../pages/LoginPage";
-import UserPetForm from "../pages/UserPetForm";
 
 const PrivateRoute = ({  component: Component, ...rest}) => (
     <Route {...rest} render={props => (

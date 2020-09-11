@@ -1,9 +1,5 @@
-import React, { useEffect } from "react";
-import { connect } from "react-redux";
-import { Link } from "react-router-dom";
-import * as actions from "../actions/user";
-import { userUrl } from "../actions/api";
-import { render } from "@testing-library/react";
+import React from "react";
+import AuthDataProvider from "../components/AuthDataContext";
 
 class HomePage extends React.Component{
     constructor(props) {
@@ -20,7 +16,7 @@ class HomePage extends React.Component{
             user: JSON.parse(localStorage.getItem('user')),
             users: { loading: true }
         });
-        userUrl.getAll().then(users => this.setState({ users }));
+        AuthDataProvider.getAll().then(users => this.setState({ users }));
     }
 
 render(){

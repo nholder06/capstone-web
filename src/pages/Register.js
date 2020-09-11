@@ -49,9 +49,8 @@ function Register({classes, ...props}) {
 
         const {
             values,
-            setValues, 
             errors,
-            setErrors,
+            setErrors,  
             handleInputChange
         } = UseForm(initialFieldValues, validate)
 
