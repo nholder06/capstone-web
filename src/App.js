@@ -12,7 +12,9 @@ class App extends React.Component {
        <Provider store={store}>
        <div>
        <Header />
+       <div>
        <AppRouter />
+         </div>
          </div>
          </Provider>
   );

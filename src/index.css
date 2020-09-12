@@ -14,24 +14,3 @@ code {
 }
 
 
-.header {
-  background-color: #282c34;
-  display: flex;
-  flex-direction: column;
-  align-items: left;
-  font-size: calc(30px + 2vmin);
-  color: white;
-  min-height: 15vh;
-  padding-top: 50px;
-  padding-left: 20px;
-}
-
-.nav {
-  background-color: #282c34;
-  color: white;
-  align-items: right;
-}
-
-.visibility-hidden {
-  visibility: hidden;
-}
