@@ -6,14 +6,13 @@ import LoginPage from '../pages/LoginPage';
 import HomePage from '../pages/HomePage';
 import Register from '../pages/Register';
 import UserPetForm from '../pages/UserPetForm';
-import { user } from '../reducers/user';
 
 const AppRouter = () => (
     <Switch>
-        <Route exact path={ userUrl.authenticate } component={ LoginPage } />
-        <Route exact path={ userUrl.create } component={ Register } />        
-           <PrivateRoute exact path={userUrl.fetchAll} component={ HomePage } />
-           <PrivateRoute exact path={petUrl.create} component={ UserPetForm } />
+        <Route exact path= "/" component={ LoginPage } />
+        <Route exact path= "/register" component={ Register } />   
+        <Route exact path= "/pets" component={ UserPetForm } />      
+        <PrivateRoute exact path='/user' component={ HomePage } /> 
     </Switch>
 );
 

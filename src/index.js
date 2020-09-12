@@ -4,6 +4,8 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { BrowserRouter } from 'react-router-dom';
+import { Router } from '@material-ui/icons';
+import history from '../src/helpers/history';
 
 ReactDOM.render((
   <BrowserRouter>

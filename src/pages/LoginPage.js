@@ -24,8 +24,8 @@ class LoginPage extends React.Component {
         this.handleSubmit = this.handleSubmit.bind(this);
     }
 
-    handleChange(e) {
-        const { name, value } = e.target;
+    handleChange(event) {
+        const { name, value } = event.target;
         this.setState({ [name]: value});
     }
 
@@ -43,7 +43,7 @@ class LoginPage extends React.Component {
         AuthDataProvider.login(email, password)
             .then(
               user => {
-                 const { from } = this.props.location.state || { from: { pathName: "/" } };
+                 const { from } = this.props.location.state || { from: { pathName: "/user" } };
                  this.props.history.push(from);
             },
 
@@ -108,5 +108,6 @@ class LoginPage extends React.Component {
         );
     }
 }
+
 
 export default LoginPage;

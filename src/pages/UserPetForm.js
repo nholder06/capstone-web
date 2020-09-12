@@ -172,8 +172,6 @@ const handleSubmit = e => {
                     label="Notes"
                     value={values.notes}
                     onChange={handleInputChange}
-                    multiLine
-                    rows={5}
                     />
 
                     <div>

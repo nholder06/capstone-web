@@ -14,10 +14,10 @@ const formatData = data => ({
 
 export const fetchAll = () => dispatch => {
     petUrl.pets().fetchAll()
-    .then(response => {
+    .then(res => {
         dispatch({
             type: ACTION_TYPES.FETCH_ALL,
-            payload: response.data
+            payload: res.data
         })
     })
     .catch(err => console.log(err))
