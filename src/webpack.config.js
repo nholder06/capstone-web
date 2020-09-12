@@ -22,7 +22,7 @@ module.exports = {
     },
     externals: {
         config: JSON.stringify({
-            apiUrl: 'http://localhost:3000'
+            apiUrl: 'http://localhost:63851/api'
         })
     }
 }

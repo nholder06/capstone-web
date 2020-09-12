@@ -11,7 +11,7 @@ const AppRouter = () => (
     <Switch>
         <Route exact path= "/" component={ LoginPage } />
         <Route exact path= "/register" component={ Register } />   
-        <Route exact path= "/pets" component={ UserPetForm } />      
+        <Route exact path= "/addPet" component={ UserPetForm } />      
         <PrivateRoute exact path='/user' component={ HomePage } /> 
     </Switch>
 );
