@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { user } from '../reducers/user';
-import { pet } from '../reducers/pet';
+import { pets } from "../reducers/pets";
 
 
 const baseUrl = "http://localhost:63851/api/"
@@ -19,7 +19,7 @@ const userUrl = {
 }
 
 const petUrl = {
-     pet(url = baseUrl + 'pets') {
+     pets(url = baseUrl + pets) {
             return {
                 fetchAll: () => axios.get(url),
                 fetchById: id => axios.get(url + id),

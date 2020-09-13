@@ -4,7 +4,6 @@ import AuthDataProvider from "../components/AuthDataContext";
 import { Button, TextField } from "@material-ui/core";
 import "../styles/LoginPage.css";
 import { Link } from 'react-router-dom';
-import { Navigation } from "../components/Navigation";
 
 
 class LoginPage extends React.Component {
@@ -54,7 +53,6 @@ class LoginPage extends React.Component {
         const { email, password, submitted, loading, error } = this.state;
         return(
             <div className={'container'}>
-            <Navigation />
             <h1 className={'title'} >Welcome!</h1>
             <p className={'title'}>Login here if you already have an account with us.</p>
             <p className={'register'}><Link to="/register">Don't have an account? Register here. </Link></p>

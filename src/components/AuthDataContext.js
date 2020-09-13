@@ -6,7 +6,9 @@ const baseUrl = "http://localhost:63851/api/"
 export const AuthDataProvider = {
     login,
     logout,
-    getAll
+    getAll,
+    addPet,
+    getAllPets
 };
 
 function login(email, password) {
@@ -38,6 +40,23 @@ function getAll() {
     };
     
     return fetch(baseUrl +'user', requestOptions).then(handleResponse);
+}
+
+function addPet(){
+    const requestOptions = {
+        method: 'POST',
+        headers: authHeader()
+    };
+
+    return fetch(baseUrl + 'pets', requestOptions).then(handleResponse);
+}
+
+function getAllPets(){
+    const requestOptions = {
+        method: 'GET',
+        headers: authHeader()
+    }
+    return fetch(baseUrl + 'Pets', requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {

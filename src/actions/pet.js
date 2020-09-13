@@ -25,7 +25,7 @@ export const fetchAll = () => dispatch => {
 
 export const create = (data, onSuccess) => dispatch => {
     data = formatData(data)
-    petUrl.pet().create(data)
+    petUrl.pets().create(data)
         .then(res => {
             dispatch({
                 type: ACTION_TYPES.CREATE,
@@ -38,7 +38,7 @@ export const create = (data, onSuccess) => dispatch => {
 
 export const update = (id, data, onSuccess) => dispatch => {
     data = formatData(data)
-    petUrl.pet().update(id, data)
+    petUrl.pets().update(id, data)
         .then(res => {
             dispatch({
                 type: ACTION_TYPES.UPDATE,
@@ -50,7 +50,7 @@ export const update = (id, data, onSuccess) => dispatch => {
 }
 
 export const Delete = (id, onSuccess) => dispatch => {
-    petUrl.pet().delete(id)
+    petUrl.pets().delete(id)
     .then(res=> {
         dispatch({
             type: ACTION_TYPES.DELETE,
