@@ -4,18 +4,18 @@ import { Provider } from 'react-redux';
 import { Header } from '../src/components/Header';
 import  './index.css';
 import AppRouter from '../src/components/AppRouter';
+import { Navigation } from './components/Navigation';
 
 
 class App extends React.Component {
   render() {
      return (
        <Provider store={store}>
-       <div>
-       <Header />
-       <div>
+           <div>
+         <Header />
+         <Navigation />
+         </div>
        <AppRouter />
-         </div>
-         </div>
          </Provider>
   );
 }

@@ -42,13 +42,22 @@ function getAll() {
     return fetch(baseUrl +'user', requestOptions).then(handleResponse);
 }
 
-function addPet(){
+function addPet({pet}){
     const requestOptions = {
         method: 'POST',
-        headers: authHeader()
+        headers: { 'Content-Type': 'application/json'},
+        body: JSON.stringify({pet})
     };
 
-    return fetch(baseUrl + 'pets', requestOptions).then(handleResponse);
+    return fetch(baseUrl + 'pets', requestOptions)
+    .then(handleResponse)
+    .then(pets => {
+        if (pets) {
+            pets.authdata = window.btoa({pet});
+            localStorage.setItem('pets', JSON.stringify(pets));
+        }
+    return pet;
+    });
 }
 
 function getAllPets(){
@@ -56,11 +65,12 @@ function getAllPets(){
         method: 'GET',
         headers: authHeader()
     }
-    return fetch(baseUrl + 'Pets', requestOptions).then(handleResponse);
+    return fetch(baseUrl + 'pets', requestOptions).then(handleResponse);
 }
 
 function handleResponse(response) {
     return response.text().then(text => {
+        console.log('text:' + text)
         const data = text && JSON.parse(text);
             if(!response.ok) {
                 if(response.status === 401){

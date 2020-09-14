@@ -6,6 +6,7 @@
     padding-top: 50px;
     padding-left: 20px;
   }
+
 .h1 {
   font-size: calc(30px + 2vmin);
   align-items: left;
@@ -15,14 +16,20 @@
 
 .h2 {
   color: purple;
+  text-align: center;
 }
 
-.nav-link {
+.nav {
   font-size: 20px;
-  flex-direction: row;
+  flex-direction: column;
   flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 10px;
+}
+
+.submit {
+  align-self: center;
+  color: #3f8cb5;
 }
 
 .visibility-hidden {
