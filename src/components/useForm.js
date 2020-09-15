@@ -1,7 +1,7 @@
 import { useState } from 'react';
 
 
-const useForm = (initialFieldValues, validate) => {
+const UseForm = (initialFieldValues, validate) => {
     const [values, setValues] = useState(initialFieldValues)
     const [errors, setErrors] = useState({})
 
@@ -23,4 +23,4 @@ const useForm = (initialFieldValues, validate) => {
     };
 }
 
-export default useForm;
+export default UseForm;

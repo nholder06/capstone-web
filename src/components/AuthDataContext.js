@@ -42,11 +42,11 @@ function getAll() {
     return fetch(baseUrl +'user', requestOptions).then(handleResponse);
 }
 
-function addPet({pet}){
+function addPet(pet){
     const requestOptions = {
         method: 'POST',
         headers: { 'Content-Type': 'application/json'},
-        body: JSON.stringify({pet})
+        body: JSON.stringify(pet)
     };
 
     return fetch(baseUrl + 'pets', requestOptions)
@@ -70,7 +70,6 @@ function getAllPets(){
 
 function handleResponse(response) {
     return response.text().then(text => {
-        console.log('text:' + text)
         const data = text && JSON.parse(text);
             if(!response.ok) {
                 if(response.status === 401){
