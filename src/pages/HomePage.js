@@ -1,5 +1,7 @@
 import React from "react";
 import AuthDataProvider from "../components/AuthDataContext";
+import ProfileTable from "../components/ProfileTable";
+import { Paper} from "@material-ui/core";
 
 class HomePage extends React.Component{
     constructor(props) {
@@ -24,8 +26,10 @@ render(){
         return (
             <div>
              <h2>Hello, {user.fullName}!</h2>
-             <h3>Check out who else is using PetFriendly: </h3>
-             {users.loading && <em>Loading users...</em>}
+             <h3>Check out the pets added to PetFriendly: </h3>
+                <Paper elevation={3}>
+             <ProfileTable />
+             {/* {users.loading && <em>Loading users...</em>}
                 {users.length &&
                     <ul>
                         {users.map((user, index) =>
@@ -33,9 +37,10 @@ render(){
                                 {user.fullName}
                             </li>
                         )}
-                    </ul>
-                }
-    
+                    </ul> */}
+                {/* }
+     */}
+     </Paper>
                 </div>
         );
     }
