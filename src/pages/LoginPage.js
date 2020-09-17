@@ -2,7 +2,7 @@
 import React from "react";
 import AuthDataProvider from "../components/AuthDataContext";
 import { Button, TextField } from "@material-ui/core";
-import "../styles/LoginPage.css";
+import "../styles/Forms.css";
 import { Link } from 'react-router-dom';
 
 
@@ -91,7 +91,7 @@ class LoginPage extends React.Component {
                         variant="contained"
                         color="primary"
                         type="submit"
-                        className='submitButton'
+                        className={'submitButton'}
                         disabled={loading}
                         >Login</Button>
                         {loading &&

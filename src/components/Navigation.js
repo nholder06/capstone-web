@@ -5,10 +5,12 @@ import "../styles/Elements.css";
 
 function Navigation (){
     return (
-<div className={'navBar'}>
-    <p className={"nav"}><Link to="/user">Home</Link></p>
-    <p className={"nav"}><Link to="/pets">Pet Profile</Link></p>
-    <p className={"nav"}><Link to="/">Logout</Link></p>
+<div>
+    <ul className={'navBar'}>
+    <li className={"nav"}><Link to="/user">Home</Link></li>
+    <li className={"nav"}><Link to="/addpet">Add Pet</Link></li>
+    <li className={"nav"}><Link to="/">Logout</Link></li>
+    </ul>
     </div>
         );
     }   

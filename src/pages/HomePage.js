@@ -2,6 +2,7 @@ import React from "react";
 import AuthDataProvider from "../components/AuthDataContext";
 import ProfileTable from "../components/ProfileTable";
 import { Paper} from "@material-ui/core";
+import "../styles/Table.css";
 
 class HomePage extends React.Component{
     constructor(props) {
@@ -25,8 +26,8 @@ render(){
     const { user, users } = this.state;
         return (
             <div>
-             <h2>Hello, {user.fullName}!</h2>
-             <h3>Check out the pets added to PetFriendly: </h3>
+             <h2 className={'h2'}>Hello, {user.fullName}!</h2>
+             <h3 className={'register'}>Check out the pets added to PetFriendly: </h3>
                 <Paper elevation={3}>
              <ProfileTable />
              {/* {users.loading && <em>Loading users...</em>}

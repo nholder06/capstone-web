@@ -3,6 +3,7 @@ import UseForm from "../components/UseForm";
 import { TextField, Grid, withStyles, Button } from "@material-ui/core";
 import { connect } from "react-redux";
 import * as actions from "../actions/user";
+import "../styles/Forms.css";
 
 const styles = theme => ({
     root: {
@@ -62,7 +63,7 @@ function Register({classes, ...props}) {
         }
 
          return (
-           <div>
+           <div className='container'>
             <div>
                 <h1 className={'title'}>Create an account with us.</h1>
             </div>
@@ -74,6 +75,7 @@ function Register({classes, ...props}) {
                     variant="outlined"
                     label="Full Name"
                     value={values.fullName}
+                    className={'form-group'}
                     onChange={handleInputChange}
                     {...(errors.fullName && { error: true, helperText: errors.fullName})}
                     />
@@ -82,6 +84,7 @@ function Register({classes, ...props}) {
                     variant="outlined"
                     label="Email Address"
                     value={values.email}
+                    className={'form-group'}
                     onChange={handleInputChange}
                     {...(errors.email && { error: true, helperText: errors.email})}
                     />
@@ -90,6 +93,7 @@ function Register({classes, ...props}) {
                     variant="outlined"
                     label="Password"
                     value={values.password}
+                    className={'form-group'}
                     onChange={handleInputChange}
                     {...(errors.password && { error: true, helperText: errors.password})}
                     />
@@ -98,6 +102,7 @@ function Register({classes, ...props}) {
                         variant="contained"
                         color="primary"
                         type="submit"
+                        className={'submitButton'}
                         className={classes.smMargin}>
                              Create Account
                         </Button>

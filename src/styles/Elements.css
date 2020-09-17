@@ -19,12 +19,37 @@
   text-align: center;
 }
 
+.navbar {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #333;
+}
+
 .nav {
   font-size: 20px;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-  padding: 10px;
+  list-style-type: none;
+  float: left;
+  margin-right: 10px;
+  padding: 0;
+  overflow: hidden;
+  /* background-color: #333 */
+}
+.nav {
+  display: inline;
+}
+
+.nav a {
+  display: block;
+  color: #8881f2;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+li a:hover {
+  background-color: #111;
 }
 
 .submit {
