@@ -5,15 +5,15 @@ import LoginPage from '../pages/LoginPage';
 import HomePage from '../pages/HomePage';
 import Register from '../pages/Register';
 import UserPetForm from '../pages/UserPetForm';
-import PetProfile from '../pages/PetProfile';
+// import PetProfile from '../pages/PetProfile';
 
 const AppRouter = () => (
     <Switch>
         <Route exact path= "/" component={ LoginPage } />
         <Route exact path= "/register" component={ Register } />   
         <PrivateRoute exact path= "/addPet" component={ UserPetForm } />      
-        <PrivateRoute exact path='/user' component={ HomePage } /> 
-        <PrivateRoute exact path='/pets' component={ PetProfile } />
+        <PrivateRoute exact path='/home' component={ HomePage } /> 
+        {/* <PrivateRoute exact path='/userpet' component={ PetProfile } /> */}
     </Switch>
 );
 

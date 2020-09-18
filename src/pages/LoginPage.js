@@ -1,4 +1,3 @@
-// import config from '../webpack.config';
 import React from "react";
 import AuthDataProvider from "../components/AuthDataContext";
 import { Button, TextField } from "@material-ui/core";
@@ -9,6 +8,8 @@ import { Link } from 'react-router-dom';
 class LoginPage extends React.Component {
     constructor(props) {
         super(props);
+
+        AuthDataProvider.logout();
 
         this.state = {
             email: '',

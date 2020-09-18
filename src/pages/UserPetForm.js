@@ -1,5 +1,5 @@
 import React from "react";
-import { Paper, Grid, TextField, withStyles, Button } from "@material-ui/core";
+import { Paper, Grid, TextField, Select, MenuItem, withStyles, Button } from "@material-ui/core";
 import   UseForm   from "../components/UseForm";
 import { connect } from "react-redux";
 import AuthDataProvider from "../components/AuthDataContext";
@@ -37,7 +37,7 @@ const initialFieldValues = {
    preferredVet: '',
    vetPhoneNum: '',
    notes: '',
-//    userId: localStorage.getItem('user')
+//    userId: localStorage.getItem('user.id'),
 }
 
 function UserPetForm({classes, ...props}){
@@ -70,8 +70,8 @@ function UserPetForm({classes, ...props}){
     const handleSubmit = e => {
         e.preventDefault()
         if(validate()){
-          AuthDataProvider.addPet(values, () => {window.alert('Success!')})
-        }
+          AuthDataProvider.addPet(values, () => this.history.push('/pets'))
+        };
     }
 
 return (
@@ -89,7 +89,7 @@ return (
                             onChange={handleInputChange}
                             {...(errors.name && { error: true, helperText: errors.name})}
                             />
-                            {/* <Select
+                            <Select
                             name='type'
                             value={ values.type }
                             onChange={handleInputChange}> 
@@ -103,16 +103,17 @@ return (
                             label='Birthday'
                             value={values.birthday}
                             onChange={handleInputChange}
-                            /> */}
+                            />
 
-                            <TextField
+                            {/* <TextField
                             name='type'
                             variant='outlined'
                             label='Type'
                             value={ values.type }
                             onChange={handleInputChange}
                             {...(errors.name && { error: true, helperText: errors.name})}
-                            />
+                            /> */}
+
                              <TextField
                             name='breed'
                             variant='outlined'
@@ -163,13 +164,6 @@ return (
                             onChange={handleInputChange}
                             />
                             <TextField
-                            name='dislikes'
-                            variant='outlined'
-                            label='Dislikes'
-                            value={values.dislikes}
-                            onChange={handleInputChange}
-                            />
-                            <TextField
                             name='preferredVet'
                             variant='outlined'
                             label='Preferred Vet'
@@ -181,6 +175,15 @@ return (
                             variant='outlined'
                             label='Vet Phone Number'
                             value={values.vetPhoneNum}
+                            onChange={handleInputChange}
+                            />
+                               <TextField
+                            name='notes'
+                            variant='outlined'
+                            label='Notes'
+                            value={values.notes}
+                            multiline
+                            rows={4}
                             onChange={handleInputChange}
                             />
 

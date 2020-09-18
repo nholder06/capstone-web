@@ -7,6 +7,7 @@ return (
     <div className={'header'}>
     <h1 className={'h1'} >Pet Friendly</h1>
     </div>
+   
 )
 };
 
