@@ -36,11 +36,14 @@ const initialFieldValues = {
    routines: '',
    preferredVet: '',
    vetPhoneNum: '',
-   notes: '',
-//    userId: localStorage.getItem('user.id'),
+   notes: ''
 }
 
 function UserPetForm({classes, ...props}){
+
+    let userId = localStorage.getItem('user');
+    userId = userId[6] + userId[7]
+    userId = parseInt(userId);    
 
     const validate = (fieldValues = values) => {
 
@@ -59,6 +62,9 @@ function UserPetForm({classes, ...props}){
         return Object.values(temp).every(x => x === '')
     }
 
+
+    
+    
     const{
         values,
         errors, 
@@ -70,6 +76,7 @@ function UserPetForm({classes, ...props}){
     const handleSubmit = e => {
         e.preventDefault()
         if(validate()){
+            values.userId = userId;
           AuthDataProvider.addPet(values, () => this.history.push('/pets'))
         };
     }
