@@ -1,9 +1,10 @@
-import React from "react";
-import { Paper, Grid, TextField, Select, MenuItem, withStyles, Button } from "@material-ui/core";
-import   UseForm   from "../components/UseForm";
-import { connect } from "react-redux";
-import AuthDataProvider from "../components/AuthDataContext";
-import "../styles/Forms.css";
+import React from 'react';
+import { Paper, Grid, TextField, Select, MenuItem, withStyles, Button } from '@material-ui/core';
+import   UseForm   from '../components/UseForm';
+import { useHistory } from 'react-router-dom';
+import { connect } from 'react-redux';
+import AuthDataProvider from '../components/AuthDataContext';
+import '../styles/Forms.css';
 
 
 
@@ -45,6 +46,8 @@ function UserPetForm({classes, ...props}){
     userId = userId[6] + userId[7]
     userId = parseInt(userId);    
 
+    const history = useHistory();
+
     const validate = (fieldValues = values) => {
 
         let temp={}
@@ -77,7 +80,8 @@ function UserPetForm({classes, ...props}){
         e.preventDefault()
         if(validate()){
             values.userId = userId;
-          AuthDataProvider.addPet(values, () => this.history.push('/pets'))
+          AuthDataProvider.addPet(values);
+          history.push('/home');
         };
     }
 

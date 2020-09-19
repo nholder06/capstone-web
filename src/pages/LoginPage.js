@@ -42,8 +42,8 @@ class LoginPage extends React.Component {
         AuthDataProvider.login(email, password)
             .then(
               user => {
-                 const { from } = this.props.location.state || { from: { pathName: "/user" } };
-                 this.props.history.push(from);
+                 const { from } = this.props.location.state || { from: { pathName: "/" } };
+                 this.props.history.push('/home');
             },
 
             error => this.setState({ error, loading: false })
