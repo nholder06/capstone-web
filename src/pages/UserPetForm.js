@@ -1,5 +1,5 @@
 import React from 'react';
-import { Paper, Grid, TextField, Select, MenuItem, withStyles, Button } from '@material-ui/core';
+import { Paper, Grid, TextField, withStyles, Button } from '@material-ui/core';
 import   UseForm   from '../components/UseForm';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
@@ -64,9 +64,6 @@ function UserPetForm({classes, ...props}){
         if(fieldValues === values)
         return Object.values(temp).every(x => x === '')
     }
-
-
-    
     
     const{
         values,
@@ -87,11 +84,13 @@ function UserPetForm({classes, ...props}){
 
 return (
             <div>
-                <h2 className={'h2'}>Create your pet's profile</h2>
                 <form autoComplete='off' noValidate className={classes.root} onSubmit={handleSubmit}>
                 <Paper elevation={3}>
                     <Grid container>
                         <Grid item xs={12}>
+
+                        <h2 className={'h2'}>Create your pet's profile</h2>
+
                             <TextField
                             name='name'
                             variant='outlined'
@@ -100,59 +99,48 @@ return (
                             onChange={handleInputChange}
                             {...(errors.name && { error: true, helperText: errors.name})}
                             />
-                            <Select
-                            name='type'
-                            value={ values.type }
-                            onChange={handleInputChange}> 
-                            <MenuItem value={'dog'}>Dog</MenuItem>
-                            <MenuItem value={'cat'}>Cat</MenuItem>
-                            </Select>
-                            <TextField
-                            name='birthday'
-                            type='date'
-                            variant='outlined' 
-                            label='Birthday'
-                            value={values.birthday}
-                            onChange={handleInputChange}
-                            />
 
-                            {/* <TextField
+                            <TextField
                             name='type'
                             variant='outlined'
                             label='Type'
                             value={ values.type }
                             onChange={handleInputChange}
                             {...(errors.name && { error: true, helperText: errors.name})}
-                            /> */}
+                            />
 
                              <TextField
                             name='breed'
                             variant='outlined'
                             label='Breed'
-                            value={ values.breed }
+                            value={values.breed}
                             onChange={handleInputChange}
                             />
+
                              <TextField
                             name='age'
                             variant='outlined'
                             label='Age'
-                            value={ values.age }
+                            value={values.age}
                             onChange={handleInputChange}
                             />
+
                              <TextField
                             name='birthday'
                             variant='outlined'
                             label='Birthday'
-                            value={ values.birthday}
+                            value={values.birthday}
                             onChange={handleInputChange}
                             />
+
                              <TextField
                             name='commands'
                             variant='outlined'
                             label='Commands'
-                            value={ values.commands }
+                            value={values.commands}
                             onChange={handleInputChange}
                             />
+
                             <TextField
                             name='likes'
                             variant='outlined'
@@ -160,6 +148,7 @@ return (
                             value={values.likes}
                             onChange={handleInputChange}
                             />
+
                             <TextField
                             name='dislikes'
                             variant='outlined'
@@ -167,6 +156,7 @@ return (
                             value={values.dislikes}
                             onChange={handleInputChange}
                             />
+
                             <TextField
                             name='routines'
                             variant='outlined'
@@ -174,6 +164,7 @@ return (
                             value={values.routines}
                             onChange={handleInputChange}
                             />
+
                             <TextField
                             name='preferredVet'
                             variant='outlined'
@@ -181,6 +172,7 @@ return (
                             value={values.preferredVet}
                             onChange={handleInputChange}
                             />
+
                             <TextField
                             name='vetPhoneNum'
                             variant='outlined'
@@ -188,7 +180,8 @@ return (
                             value={values.vetPhoneNum}
                             onChange={handleInputChange}
                             />
-                               <TextField
+
+                            <TextField
                             name='notes'
                             variant='outlined'
                             label='Notes'
@@ -199,6 +192,7 @@ return (
                             />
 
                             <div>
+
                             <Button 
                             className={'submit'}
                             color={'primary'}
@@ -206,6 +200,7 @@ return (
                             type="submit">
                             Add Pet
                             </Button>
+
                             </div>
                         </Grid>
                     </Grid>

@@ -13,7 +13,6 @@ class App extends React.Component {
        <Provider store={store}>
            <div>
          <Header />
-         <Navigation />
          </div>
        <AppRouter />
          </Provider>

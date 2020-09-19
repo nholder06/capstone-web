@@ -103,7 +103,7 @@ function Register({classes, ...props}) {
                         color="primary"
                         type="submit"
                         className={'submitButton'}
-                        className={classes.smMargin}>
+                        >
                              Create Account
                         </Button>
                     </div>
