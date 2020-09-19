@@ -43,8 +43,9 @@ const initialFieldValues = {
 function UserPetForm({classes, ...props}){
 
     let userId = localStorage.getItem('user');
-    userId = userId[6] + userId[7]
-    userId = parseInt(userId);    
+    userId = JSON.parse(userId);
+    userId = Object.values(userId);
+    userId = userId[0];
 
     const history = useHistory();
 
