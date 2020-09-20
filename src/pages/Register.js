@@ -5,22 +5,6 @@ import { connect } from "react-redux";
 import * as actions from "../actions/user";
 import "../styles/Forms.css";
 
-const styles = theme => ({
-    root: {
-    '& .MuiTextField-root' : {
-        margin: theme.spacing(1),
-        minWidth: 230,
-        }
-    },
-    formControl: {
-    margin: theme.spacing(1),
-        minWidth: 230,
-        },
-        smMargin:{
-            margin: theme.spacing(1),
-        }
-})
-
 const initialFieldValues = {
     fullName: '',
     email: '',
@@ -32,20 +16,21 @@ function Register({classes, ...props}) {
     const validate = (fieldValues = values) => {
         
         let temp = {}
-        if("fullName" in fieldValues){
-            temp.fullName = fieldValues.fullName?"":"Required."
+        if('fullName' in fieldValues){
+            temp.fullName = fieldValues.fullName?'':'Required.'
         }
-        if("email" in fieldValues){
-            temp.email = (/^$|.+@.+...+/).test(fieldValues.email)?"":"Not valid email. Required."
+        if('email' in fieldValues){
+            temp.email = (/^$|.+@.+...+/).test(fieldValues.email)?'':'Not valid email. Required.'
         }
-        if("password" in fieldValues){
-            temp.password = fieldValues.password?"":"Required."
+        if('password' in fieldValues){
+            temp.password = fieldValues.password?'':'Required.'
         }
             setErrors({
                 ...temp
             })
+        
         if(fieldValues === values)
-            return Object.values(temp).every(x => x === "")
+            return Object.values(temp).every(x => x === '')
         }
 
         const {
@@ -58,7 +43,7 @@ function Register({classes, ...props}) {
         const handleSubmit = e => {
             e.preventDefault()
             if(validate()) {
-                props.createUser(values, () => {window.alert("Success!")})
+                props.createUser(values, () => {window.alert("Success! You are now able to login.")})
             }
         }
 
@@ -67,37 +52,39 @@ function Register({classes, ...props}) {
             <div>
                 <h1 className={'title'}>Create an account with us.</h1>
             </div>
-            <form autoComplete="off" noValidate className={classes.root} onSubmit={handleSubmit}>
-            <Grid container>
-                <Grid item xs={6}>
+            <form autoComplete="off" noValidate className={'form'} name='form-group' onSubmit={handleSubmit}>
+                <div className={'form-group'}>
                     <TextField
                     name="fullName"
                     variant="outlined"
                     label="Full Name"
                     value={values.fullName}
-                    className={'form-group'}
                     onChange={handleInputChange}
                     {...(errors.fullName && { error: true, helperText: errors.fullName})}
                     />
+                    </div>
+                    <div className={"form-group"}>
                     <TextField
                     name="email"
                     variant="outlined"
                     label="Email Address"
                     value={values.email}
-                    className={'form-group'}
                     onChange={handleInputChange}
                     {...(errors.email && { error: true, helperText: errors.email})}
                     />
+                    </div>
+                    <div className={"form-group"}>
                     <TextField
                     name="password"
                     variant="outlined"
                     label="Password"
+                    type="password"
                     value={values.password}
-                    className={'form-group'}
                     onChange={handleInputChange}
                     {...(errors.password && { error: true, helperText: errors.password})}
                     />
-                    <div>
+                    </div>
+                    <div className={"form-group"}>
                         <Button
                         variant="contained"
                         color="primary"
@@ -106,9 +93,7 @@ function Register({classes, ...props}) {
                         >
                              Create Account
                         </Button>
-                    </div>
-                </Grid>
-            </Grid>
+                </div>
         </form>
     </div>           
         );
@@ -122,4 +107,4 @@ function Register({classes, ...props}) {
         createUser : actions.create
     }
 
-    export default connect(mapStateToProps, mapActiontoProps)(withStyles(styles)(Register));
+    export default connect(mapStateToProps, mapActiontoProps)(Register);

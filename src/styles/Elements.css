@@ -1,17 +1,25 @@
 
+.container {
+  padding-top: 50px;
+}
 .header {
     background-color: #282c34;
     color: white;
     min-height: 14vh;
     padding-top: 50px;
     padding-left: 20px;
+    font-size: calc(30px + 2vmin);
   }
 
 .h1 {
+  align-content: space-between;
+  padding-top: 0;
+  margin-top: 0;
   font-size: calc(30px + 2vmin);
   align-items: left;
   flex-direction: column;  
   display: flex; 
+  align-self: flex-end;
 }
 
 .h2 {
@@ -20,25 +28,29 @@
 }
 
 .navbar {
+  align-self: flex-start;
   list-style-type: none;
-  margin: 0;
-  padding: 0;
+  margin-top: 0;
+  padding-top: 0;
   overflow: hidden;
   background-color: #333;
+  float: left;
 }
 
 .nav {
   font-size: 20px;
   list-style-type: none;
-  float: left;
+  /* float: left; */
   margin-right: 10px;
   padding: 0;
   overflow: hidden;
+  display: inline;
   /* background-color: #333 */
 }
 .nav {
-  display: inline;
+  float: left;
 }
+
 
 .nav a {
   display: block;

@@ -8,13 +8,12 @@ function PetProfile (){
 
     const [data, setData] = useState([]);
 
-    let userId = localStorage.getItem('user');
-    userId = JSON.parse(userId);
-    userId = Object.values(userId);
-    userId = userId[0];
-    userId = parseInt(userId);
-
     useEffect(() => {
+        let userId = localStorage.getItem('user');
+        userId = JSON.parse(userId);
+        userId = Object.values(userId);
+        userId = userId[0];
+        userId = parseInt(userId);
         (async () => {
             const result = await axios("http://localhost:63851/api/user/" + userId + "/pet");
             setData(result.data);
