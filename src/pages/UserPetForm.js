@@ -1,29 +1,11 @@
 import React from 'react';
-import { Paper, Grid, TextField, withStyles, Button } from '@material-ui/core';
+import { Paper, Grid, TextField, Button } from '@material-ui/core';
 import   UseForm   from '../components/UseForm';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AuthDataProvider from '../components/AuthDataContext';
 import '../styles/Forms.css';
 
-
-
-
-const styles = theme => ({
-    root: {
-    '& .MuiTextField-root' : {
-        margin: theme.spacing(3),
-        minWidth: 250,
-        }
-    },
-    formControl: {
-    margin: theme.spacing(3),
-        minWidth: 250,
-        },
-        smMargin:{
-            margin: theme.spacing(1),
-        }
-})
 
 const initialFieldValues = {
    name: '',
@@ -85,13 +67,14 @@ function UserPetForm({classes, ...props}){
 
 return (
             <div>
-                <form autoComplete='off' noValidate className={classes.root} onSubmit={handleSubmit}>
-                <Paper elevation={3}>
-                    <Grid container>
+                <Paper elevation={3} className={'paper'}>
+                    <Grid container spacing={3}>
                         <Grid item xs={12}>
 
                         <h2 className={'h2'}>Create your pet's profile</h2>
-
+                        <form autoComplete='off' noValidate className={'form'} onSubmit={handleSubmit}>
+                        
+                            <div className={'form-group'}>
                             <TextField
                             name='name'
                             variant='outlined'
@@ -100,7 +83,9 @@ return (
                             onChange={handleInputChange}
                             {...(errors.name && { error: true, helperText: errors.name})}
                             />
-
+                            </div>
+                            
+                            <div className={'form-group'}>
                             <TextField
                             name='type'
                             variant='outlined'
@@ -109,7 +94,9 @@ return (
                             onChange={handleInputChange}
                             {...(errors.name && { error: true, helperText: errors.name})}
                             />
-
+                            </div>
+                            
+                            <div className={'form-group'}>
                              <TextField
                             name='breed'
                             variant='outlined'
@@ -117,7 +104,9 @@ return (
                             value={values.breed}
                             onChange={handleInputChange}
                             />
+                            </div>
 
+                            <div className={'form-group'}>
                              <TextField
                             name='age'
                             variant='outlined'
@@ -125,7 +114,9 @@ return (
                             value={values.age}
                             onChange={handleInputChange}
                             />
+                            </div>
 
+                            <div className={'form-group'}>
                              <TextField
                             name='birthday'
                             variant='outlined'
@@ -133,7 +124,9 @@ return (
                             value={values.birthday}
                             onChange={handleInputChange}
                             />
+                            </div>
 
+                            <div className={'form-group'}>
                              <TextField
                             name='commands'
                             variant='outlined'
@@ -141,7 +134,9 @@ return (
                             value={values.commands}
                             onChange={handleInputChange}
                             />
-
+                            </div>
+                            
+                            <div className={'form-group'}>
                             <TextField
                             name='likes'
                             variant='outlined'
@@ -149,7 +144,9 @@ return (
                             value={values.likes}
                             onChange={handleInputChange}
                             />
+                            </div>
 
+                            <div className={'form-group'}>
                             <TextField
                             name='dislikes'
                             variant='outlined'
@@ -157,7 +154,9 @@ return (
                             value={values.dislikes}
                             onChange={handleInputChange}
                             />
+                            </div>
 
+                            <div className={'form-group'}>
                             <TextField
                             name='routines'
                             variant='outlined'
@@ -165,7 +164,9 @@ return (
                             value={values.routines}
                             onChange={handleInputChange}
                             />
-
+                            </div>
+                           
+                            <div className={'form-group'}>
                             <TextField
                             name='preferredVet'
                             variant='outlined'
@@ -173,7 +174,9 @@ return (
                             value={values.preferredVet}
                             onChange={handleInputChange}
                             />
+                            </div>
 
+                            <div className={'form-group'}>
                             <TextField
                             name='vetPhoneNum'
                             variant='outlined'
@@ -181,7 +184,9 @@ return (
                             value={values.vetPhoneNum}
                             onChange={handleInputChange}
                             />
+                            </div>
 
+                            <div className={'form-group'}>
                             <TextField
                             name='notes'
                             variant='outlined'
@@ -191,9 +196,9 @@ return (
                             rows={4}
                             onChange={handleInputChange}
                             />
+                           </div>
 
-                            <div>
-
+                            <div className={'form-group'}>
                             <Button 
                             className={'submit'}
                             color={'primary'}
@@ -201,13 +206,13 @@ return (
                             type="submit">
                             Add Pet
                             </Button>
-
                             </div>
-                        </Grid>
+                            
+                        </form>
                     </Grid>
-                    </Paper>
-                </form>
-            </div>
+                </Grid>
+            </Paper>
+        </div>
 
 );
 }
@@ -217,4 +222,4 @@ const mapStateToProps = state => ({
 })
 
 
-export default connect(mapStateToProps)(withStyles(styles)(UserPetForm));
+export default connect(mapStateToProps)(UserPetForm);

@@ -11,7 +11,7 @@ class App extends React.Component {
   render() {
      return (
        <Provider store={store}>
-       <Container>
+       <Container maxWidth="lg">
            <div>
          <Header />
          </div>

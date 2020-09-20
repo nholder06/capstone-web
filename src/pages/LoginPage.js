@@ -67,11 +67,12 @@ class LoginPage extends React.Component {
                     onChange={this.handleChange}
                     />
                     {submitted && !email &&
-                    <div className='help-block'>Email Address is required.</div>
+                    <div className={'help-block'}>Email Address is required.</div>
                     }
                 </div>
 
                 <div className={'form-group' + (submitted && !password ? 'hasError' : '')}>
+                
                     <TextField
                     label="Password"
                     type="password"
@@ -81,7 +82,7 @@ class LoginPage extends React.Component {
                     onChange={this.handleChange}
                     />
                     {submitted && !password &&
-                    <div className='help-block'>Password is required.</div>
+                    <div className={'help-block'}>Password is required.</div>
                     }
                      </div>
 
@@ -93,7 +94,7 @@ class LoginPage extends React.Component {
                         className={'submitButton'}>Login</Button>
                      </div>
                      {error &&
-                     <div className='danger'>{error}</div>
+                     <div className={'help-block'}>{error}</div>
                         }
             </form>
             </div>

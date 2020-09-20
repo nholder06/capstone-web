@@ -87,9 +87,9 @@ function ProfileTable (){
 
     return (
     
-    <div className={'table'}>
+    <div>
         <Table
-        columns={columns}
+        columns={columns} 
         data={data} />
         
     </div>

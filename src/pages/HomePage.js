@@ -27,22 +27,22 @@ render(){
         return (
             <div>
              <h2 className={'h2'}>Hello, {user.fullName}!</h2>
-             <h3 className={'register'}>Check out the pets added to PetFriendly: </h3>
-                <Paper elevation={3}>
+             <h3 className={'h3'}>Check out the pets added to PetFriendly: </h3>
+             <div className={'profileTable'}>
              <ProfileTable />
-             {/* {users.loading && <em>Loading users...</em>}
+             {/* <div>
+             {users.loading && <em>Loading users...</em>}
                 {users.length &&
-                    <ul>
+                    <ul className={'scroll'}>
                         {users.map((user, index) =>
                             <li key={user.id}>
                                 {user.fullName}
                             </li>
                         )}
-                    </ul> */}
-                {/* }
-     */}
-     </Paper>
+                    </ul> }
+                    </div> */}
                 </div>
+            </div>
         );
     }
 }

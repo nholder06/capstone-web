@@ -1,4 +1,6 @@
 .table {
+    font-size: larger;
+    line-height: 40px;
     -webkit-box-flex: 1;
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
@@ -15,5 +17,34 @@
     user-select: none;
     background: rgba(0, 0, 0, 0.03);
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
-    text-align: center
+    text-align: center;
+    margin-top: 15%;
 }
+.profileTable{
+    font-size: larger;
+    line-height: 40px;
+    align-content: stretch;
+    -webkit-box-flex: 1;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background: rgba(0, 0, 0, 0.03);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.scroll {
+    top: 100;
+    left: 100;
+    behavior: 'smooth';
+  }

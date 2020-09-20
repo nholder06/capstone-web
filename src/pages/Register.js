@@ -1,6 +1,6 @@
 import React from "react";
 import UseForm from "../components/UseForm";
-import { TextField, Grid, withStyles, Button } from "@material-ui/core";
+import { TextField, Button } from "@material-ui/core";
 import { connect } from "react-redux";
 import * as actions from "../actions/user";
 import "../styles/Forms.css";
@@ -44,7 +44,7 @@ function Register({classes, ...props}) {
             e.preventDefault()
             if(validate()) {
                 props.createUser(values, () => {window.alert("Success! You are now able to login.")})
-            }
+                }
         }
 
          return (
@@ -84,7 +84,7 @@ function Register({classes, ...props}) {
                     {...(errors.password && { error: true, helperText: errors.password})}
                     />
                     </div>
-                    <div className={"form-group"}>
+                    <div className={"submitButton"}>
                         <Button
                         variant="contained"
                         color="primary"

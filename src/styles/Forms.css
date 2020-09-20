@@ -1,16 +1,26 @@
+  .paper {
+    height: 100%;
+  }
+  
   .form {
-    justify-content: center;
+    flex-wrap: wrap;
     display: flex;
     align-items: center;
+    align-content: space-between;
     justify-content: center;
     margin-top: 0%;
-    flex-direction: column;
+    flex-direction: row;
     padding-top: 10px;
+
   }
 
   .form-group{
+    justify-content: space-evenly;
     align-content: flex-start;
+    margin: 20px;
     padding-top: 20px;
+    padding-left: 20px;
+    align-items: stretch;
   }
 
   .title {
@@ -26,14 +36,16 @@
 
   .help-block {
     color: red;
-    justify-content: center;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    flex-flow: row;
     display: flex;
     align-items: center;
+    align-content: space-between;
     justify-content: center;
     margin-top: 0%;
-    flex-direction: column;
-    margin-right: 40px;
-    align-content: flex-start;
+    flex-direction: row;
+    padding-top: 10px;
   }
 
   .submitButton {
