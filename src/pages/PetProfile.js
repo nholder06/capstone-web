@@ -1,115 +1,105 @@
-import React from 'react';
-import { Grid, Paper, TableContainer, Table, TableBody, TableRow, TableCell, TableHead } from '@material-ui/core';
-import AuthDataProvider from "../components/AuthDataContext";
+import React, { useEffect, useState, useMemo } from "react";
+import axios from 'axios';
+import Table from '../components/Table';
+import "../styles/Table.css";
 
 
-class PetProfile extends React.Component{
-    constructor(props){
-        super(props);
+function PetProfile (){
 
-        this.state = {
-            pet: {},
-            pets: []
-        };
-    }
+    const [data, setData] = useState([]);
 
-    componentDidMount() {
-        this.setState({
-            pet: JSON.parse(localStorage.getItem('pets')),
-            pets: { loading: true }
-          });
-        AuthDataProvider.getAllPets().then(pets => this.setState({ pets }));
-    }
+    let userId = localStorage.getItem('user');
+    userId = JSON.parse(userId);
+    userId = Object.values(userId);
+    userId = userId[0];
+    userId = parseInt(userId);
 
-    render(){
-        const{ pet, pets } = this.state;
-        return (
-            <div>
-            <h2> Your Pet </h2>
-            <div>
-                <Paper elevation={3}>
-                    <Grid container>
-                        <Grid item xs={12}>
-                            <TableContainer>
-                                <Table>     
+    useEffect(() => {
+        (async () => {
+            const result = await axios("http://localhost:63851/api/user/" + userId + "/pet");
+            setData(result.data);
+        })();
+    }, []);
 
-                                    <TableHead>
-                                    <TableRow>
-                                        <TableCell> Name </TableCell>
-                                        <TableCell> Type </TableCell>
-                                        <TableCell> Breed </TableCell>
-                                        <TableCell> Age </TableCell>
-                                        <TableCell> Birthday </TableCell>
-                                        <TableCell> Commands </TableCell>
-                                        <TableCell> Likes </TableCell>
-                                        <TableCell> Dislikes </TableCell>
-                                        <TableCell> Preferred Vet </TableCell>
-                                        <TableCell> Vet Phone Number</TableCell>
-                                        </TableRow>
-                                        </TableHead>
+    const columns = useMemo(
+        () => [
+            {
+                Header: 'My Pets',
+                columns: [
+                    {
+                    
+                        Header: 'Name',
+                        accessor: 'name'
 
-                                        <TableBody>
-                                        {pets.length &&
-                                        <TableRow>
-                                        {pets.map((pet, index) =>
-                                            <TableCell key={pet.id}>{pet.name}</TableCell>
-                                            )}
-                                            {pets.map((pet, index) =>
-                                            <TableCell key={pet.id}>{pet.type}</TableCell>
-                                            )}
-                                            {pets.map((pet, index) =>
-                                            <TableCell key={pet.id}>{pet.breed}</TableCell>
-                                            )}
-                                            {pets.map((pet, index) =>
-                                            <TableCell key={pet.id}>{pet.age}</TableCell>
-                                            )}
-                                            {pets.map((pet, index) =>
-                                            <TableCell key={pet.id}>{pet.birthday}</TableCell>
-                                            )}
-                                            {pets.map((pet, index) =>
-                                            <TableCell key={pet.id}>{pet.commands}</TableCell>
-                                            )}
-                                            {pets.map((pet, index) =>
-                                            <TableCell key={pet.id}>{pet.likes}</TableCell>
-                                            )}
-                                            {pets.map((pet, index) =>
-                                            <TableCell key={pet.id}>{pet.dislikes}</TableCell>
-                                            )}
-                                            {pets.map((pet, index) =>
-                                            <TableCell key={pet.id}>{pet.preferredVet}</TableCell>
-                                            )}
-                                            {pets.map((pet, index) =>
-                                            <TableCell key={pet.id}>{pet.vetNumber}</TableCell>
-                                            )}
-                                        </TableRow>
-                                        }
-                                        </TableBody>
-                                        
-                                </Table>
-                            </TableContainer>
-                        </Grid>
-                    </Grid>
-                </Paper>
-                </div>
-                <div>
-                <Paper>
-                    <Grid item xs={6}>
-                        <h3>
-                            Notes:
-                        </h3>
-                        {pets.length &&
-                            <Grid>
-                            {pets.map((pet, index) =>
-                            <Grid key={pet.id}>{pet.notes}</Grid>
-                        )}
-                    </Grid>
-                        }
-                    </Grid>
-                </Paper>
-                </div>
-            </div>
-        );
-    }
-}
+                    },
+                    {
+                        Header: 'Type',
+                        
+                        accessor: 'type'
+
+                    },
+                    {
+                        Header: 'Breed',
+                       
+                        accessor: 'breed'
+                    },
+                    {
+                        Header: 'Age',
+                        
+                        accessor: 'age'
+                    },
+                    {
+                        Header: 'Birthday',
+                        
+                        accessor: 'birthday'
+                    },
+                    {
+                        Header: 'Commands',
+                       
+                        accessor: 'commands'
+                    },
+                    {
+                        Header: 'Likes',
+                        
+                        accessor: 'likes'
+                    },
+                    {
+                        Header: 'Dislikes',
+                        
+                        accessor: 'dislikes'
+                    },
+                    {
+                        Header: 'Preferred Vet',
+                        
+                        accessor: 'preferredVet'
+                    },
+                    {
+                        Header: 'Vet Phone Number',
+                        
+                        accessor: 'vetPhoneNum'
+                    },
+                    {
+                        Header: 'Notes',
+                        
+                        accessor: 'notes'
+                    }
+                    
+                ]
+            }
+        ],
+        []
+    );
+
+    return (
+    
+    <div className={'table'}>
+        <Table
+        columns={columns}
+        data={data} />
+        
+    </div>
+
+    );
+    }  
 
 export default PetProfile;

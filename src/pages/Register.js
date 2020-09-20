@@ -109,8 +109,8 @@ function Register({classes, ...props}) {
                     </div>
                 </Grid>
             </Grid>
-            </form>
-</div>           
+        </form>
+    </div>           
         );
     }
 
@@ -119,8 +119,7 @@ function Register({classes, ...props}) {
     })
 
     const mapActiontoProps = {
-        createUser : actions.create,
-        updateUser : actions.update
+        createUser : actions.create
     }
 
     export default connect(mapStateToProps, mapActiontoProps)(withStyles(styles)(Register));

@@ -4,6 +4,7 @@ export const ACTION_TYPES = {
     CREATE : 'CREATE',
     UPDATE : 'UPDATE',
     DELETE : 'DELETE',
+    FETCH_BY_ID  : 'FETCH_BY_ID',
     FETCH_ALL : 'FETCH_ALL'
 }
 
@@ -30,6 +31,20 @@ export const create = (data, onSuccess) => dispatch => {
             dispatch({
                 type: ACTION_TYPES.CREATE,
                 payload: res.data
+            })
+            onSuccess()
+        })
+        .catch(err => console.log(err))
+}
+
+
+export const fetchById = (id, data, onSuccess) => dispatch => {
+    data = formatData(data)
+    petUrl.pets().fetchById(id, data)
+        .then(res => {
+            dispatch({
+                type: ACTION_TYPES.UPDATE,
+                patyload: {id, ...data}
             })
             onSuccess()
         })
