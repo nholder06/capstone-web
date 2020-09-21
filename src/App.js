@@ -5,6 +5,7 @@ import { Header } from '../src/components/Header';
 import  './index.css';
 import AppRouter from '../src/components/AppRouter';
 import { Container } from '@material-ui/core';
+import { Footer } from './components/Footer';
 
 
 class App extends React.Component {
@@ -16,6 +17,7 @@ class App extends React.Component {
          <Header />
          </div>
        <AppRouter />
+       <Footer />
        </Container>
          </Provider>
   );

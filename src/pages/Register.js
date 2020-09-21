@@ -50,7 +50,7 @@ function Register({classes, ...props}) {
          return (
            <div className='container'>
             <div>
-                <h1 className={'title'}>Create an account with us.</h1>
+                <h1 className={'greeting'}>Create an account with us.</h1>
             </div>
             <form autoComplete="off" noValidate className={'form'} name='form-group' onSubmit={handleSubmit}>
                 <div className={'form-group'}>
@@ -84,7 +84,7 @@ function Register({classes, ...props}) {
                     {...(errors.password && { error: true, helperText: errors.password})}
                     />
                     </div>
-                    <div className={"submitButton"}>
+                    <div className={"form-group"}>
                         <Button
                         variant="contained"
                         color="primary"

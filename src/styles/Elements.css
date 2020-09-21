@@ -3,6 +3,9 @@
   padding-top: 50px;
   align-items: stretch; 
   flex-wrap: wrap;
+  /* display: flex; */
+  height: 100vh;
+  align-content: center;
 }
 .header {
     background-color: #282c34;
@@ -13,8 +16,20 @@
     font-size: calc(30px + 2vmin);
   }
 
+  .title {
+  align-content: center;
+  padding-top: 15%;
+  margin-top: 0;
+  font-size: calc(30px + 2vmin);
+  align-items: left;
+  flex-direction: column;  
+  display: flex; 
+  align-self: flex-end;
+
+  }
+
 .h1 {
-  align-content: space-between;
+  align-content: center;
   padding-top: 0;
   margin-top: 0;
   font-size: calc(30px + 2vmin);
@@ -24,10 +39,12 @@
   align-self: flex-end;
 }
 
-.h2 {
-  margin-top: 15%;
+.greeting {
   color: purple;
   text-align: center;
+  font-size: calc(30px + 2vmin);
+  flex: none;
+  padding-top: 10%;
 }
 
 .h3 {
@@ -70,10 +87,34 @@
 }
 
 li a:hover {
-  background-color: #111;
+  background-color:#282c34;
 }
 
 .submit {
   align-self: center;
   color: #3f8cb5;
+}
+
+.scroll {
+  height: 200px;
+  width: 18%;
+  overflow-y: scroll;
+}
+
+.footer {
+  background-color: #4d0c4d;
+  color: white;
+  padding-left: 20px;
+  padding-top: 20px;
+  margin-top: 20px;
+  font-size: 12px;
+}
+
+.submitButton {
+
+  padding-right: 20%;
+}
+
+.MuiButton-containedPrimary {
+  background-color: #313968;
 }

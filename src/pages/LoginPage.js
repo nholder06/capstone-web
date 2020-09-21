@@ -52,9 +52,9 @@ class LoginPage extends React.Component {
         const { email, password, submitted, error } = this.state;
         return(
             <div className={'container'}>
-            <h1 className={'title'} >Welcome!</h1>
-            <p className={'title'}>Login here if you already have an account with us.</p>
-            <p className={'register'}><Link to="/register">Don't have an account? Register here. </Link></p>
+            <h1 className={'greeting'} >Welcome!</h1>
+            <p className={'h3'}>Login here if you already have an account with us.</p>
+            <p className={'h3'}><Link to="/register">Don't have an account? Register here. </Link></p>
             <form autoComplete="off" noValidate className={'form'} name='form-group' onSubmit={this.handleSubmit}>
                
                 <div className={'form-group' + (submitted && !email ? 'has error' : '')}>

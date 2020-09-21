@@ -1,8 +1,10 @@
 import React, { useEffect, useState, useMemo } from "react";
 import axios from 'axios';
 import Table from '../components/Table';
-import "../styles/Table.css";
-
+import '../styles/Table.css';
+import { ButtonGroup, Button } from '@material-ui/core';
+import EditIcon from '@material-ui/icons/Edit';
+import DeleteIcon from '@material-ui/icons/Delete';
 
 function PetProfile (){
 
@@ -90,14 +92,17 @@ function PetProfile (){
     );
 
     return (
-    
+        <div>
     <div className={'table'}>
+    <ButtonGroup variant='text'>
+        <Button><EditIcon color='primary' /></Button>
+        <Button><DeleteIcon color='secondary' /></Button>
+    </ButtonGroup>
         <Table
         columns={columns}
         data={data} />
-        
     </div>
-
+    </div>
     );
     }  
 

@@ -71,7 +71,7 @@ return (
                     <Grid container spacing={3}>
                         <Grid item xs={12}>
 
-                        <h2 className={'h2'}>Create your pet's profile</h2>
+                        <h2 className={'h3'}>Create your pet's profile</h2>
                         <form autoComplete='off' noValidate className={'form'} onSubmit={handleSubmit}>
                         
                             <div className={'form-group'}>

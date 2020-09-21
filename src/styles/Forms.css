@@ -28,11 +28,6 @@
     display: flex;
     justify-content: center;
   }
-  .register {
-    display: flex;
-    justify-content: center;
-
-  } 
 
   .help-block {
     color: red;

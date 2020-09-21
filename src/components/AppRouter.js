@@ -13,7 +13,7 @@ const AppRouter = () => (
         <Route exact path= "/register" component={ Register } />   
         <PrivateRoute exact path= "/addPet" component={ UserPetForm } />      
         <PrivateRoute exact path='/home' component={ HomePage } /> 
-        <PrivateRoute exact path='/userpet' component={ PetProfile } />
+        <PrivateRoute exact path='/mypet' component={ PetProfile } />
     </Switch>
 );
 
