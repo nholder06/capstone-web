@@ -60,6 +60,7 @@ function Register({classes, ...props}) {
                     label="Full Name"
                     value={values.fullName}
                     onChange={handleInputChange}
+                    className={'help-block'}
                     {...(errors.fullName && { error: true, helperText: errors.fullName})}
                     />
                     </div>
@@ -68,8 +69,10 @@ function Register({classes, ...props}) {
                     name="email"
                     variant="outlined"
                     label="Email Address"
+                    type='email'
                     value={values.email}
                     onChange={handleInputChange}
+                    className={'help-block'}
                     {...(errors.email && { error: true, helperText: errors.email})}
                     />
                     </div>
@@ -81,6 +84,7 @@ function Register({classes, ...props}) {
                     type="password"
                     value={values.password}
                     onChange={handleInputChange}
+                    className={'help-block'}
                     {...(errors.password && { error: true, helperText: errors.password})}
                     />
                     </div>

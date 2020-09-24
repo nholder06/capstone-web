@@ -61,7 +61,7 @@ function UserPetForm({classes, ...props}){
         if(validate()){
             values.userId = userId;
           AuthDataProvider.addPet(values);
-          history.push('/home');
+          history.push('/mypet');
         };
     }
 

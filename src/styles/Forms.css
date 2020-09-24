@@ -32,15 +32,9 @@
   .help-block {
     color: red;
     justify-content: space-evenly;
-    flex-wrap: wrap;
-    flex-flow: row;
-    display: flex;
-    align-items: center;
-    align-content: space-between;
-    justify-content: center;
-    margin-top: 0%;
-    flex-direction: row;
-    padding-top: 10px;
+    align-content: flex-start;
+    padding-left: 20px;
+    align-items: stretch;
   }
 
   .submitButton {

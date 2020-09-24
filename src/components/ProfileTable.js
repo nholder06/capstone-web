@@ -54,6 +54,11 @@ function ProfileTable (){
                         accessor: 'commands'
                     },
                     {
+                        Header: 'Routines',
+                       
+                        accessor: 'routines'
+                    },
+                    {
                         Header: 'Likes',
                         
                         accessor: 'likes'

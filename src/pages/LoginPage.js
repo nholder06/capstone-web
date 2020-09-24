@@ -57,7 +57,7 @@ class LoginPage extends React.Component {
             <p className={'h3'}><Link to="/register">Don't have an account? Register here. </Link></p>
             <form autoComplete="off" noValidate className={'form'} name='form-group' onSubmit={this.handleSubmit}>
                
-                <div className={'form-group' + (submitted && !email ? 'has error' : '')}>
+                <div className={'form-group'}>
                     <TextField
                     label="Email Address"
                     type="email"
@@ -71,8 +71,8 @@ class LoginPage extends React.Component {
                     }
                 </div>
 
-                <div className={'form-group' + (submitted && !password ? 'hasError' : '')}>
-                
+                <div className={ 'form-group'}>
+
                     <TextField
                     label="Password"
                     type="password"
