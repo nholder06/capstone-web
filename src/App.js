@@ -6,6 +6,7 @@ import  './index.css';
 import AppRouter from '../src/components/AppRouter';
 import { Container } from '@material-ui/core';
 import { Footer } from './components/Footer';
+import { BrowserRouter } from 'react-router-dom';
 
 
 class App extends React.Component {
@@ -13,11 +14,13 @@ class App extends React.Component {
      return (
        <Provider store={store}>
        <Container maxWidth="lg">
+       <BrowserRouter>
            <div>
          <Header />
          </div>
        <AppRouter />
        <Footer />
+       </BrowserRouter>
        </Container>
          </Provider>
   );
