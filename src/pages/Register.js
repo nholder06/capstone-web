@@ -1,5 +1,6 @@
 import React from "react";
 import UseForm from "../components/UseForm";
+import { Navigation } from '../components/Navigation';
 import { TextField, Button } from "@material-ui/core";
 import { connect } from "react-redux";
 import * as actions from "../actions/user";
@@ -48,6 +49,8 @@ function Register({classes, ...props}) {
         }
 
          return (
+             <div>
+             <Navigation isLoggedIn={false} />
            <div className='container'>
             <div>
                 <h1 className={'greeting'}>Create an account with us.</h1>
@@ -99,7 +102,8 @@ function Register({classes, ...props}) {
                         </Button>
                 </div>
         </form>
-    </div>           
+    </div>    
+    </div>       
         );
     }
 

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Paper, Grid, TextField, Button } from '@material-ui/core';
 import   UseForm   from '../components/UseForm';
+import { Navigation } from '../components/Navigation';
 import { useHistory } from 'react-router-dom';
 import { connect } from 'react-redux';
 import AuthDataProvider from '../components/AuthDataContext';
@@ -66,6 +67,8 @@ function UserPetForm({classes, ...props}){
     }
 
 return (
+    <div>
+    <Navigation isLoggedIn={true} />
             <div>
                 <Paper elevation={3} className={'paper'}>
                     <Grid container spacing={3}>
@@ -212,6 +215,7 @@ return (
                     </Grid>
                 </Grid>
             </Paper>
+        </div>
         </div>
 
 );

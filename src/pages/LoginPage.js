@@ -1,5 +1,6 @@
 import React from "react";
 import AuthDataProvider from "../components/AuthDataContext";
+import { Navigation } from "../components/Navigation";
 import { Button, TextField } from "@material-ui/core";
 import "../styles/Forms.css";
 import { Link } from 'react-router-dom';
@@ -51,6 +52,8 @@ class LoginPage extends React.Component {
     render() {
         const { email, password, submitted, error } = this.state;
         return(
+            <div>
+            <Navigation isLoggedIn={false} />
             <div className={'container'}>
             <h1 className={'greeting'} >Welcome!</h1>
             <p className={'h3'}>Login here if you already have an account with us.</p>
@@ -97,6 +100,7 @@ class LoginPage extends React.Component {
                      <div className={'help-block'}>{error}</div>
                         }
             </form>
+            </div>
             </div>
         );
     }

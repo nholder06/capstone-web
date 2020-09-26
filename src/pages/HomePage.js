@@ -1,5 +1,6 @@
 import React from "react";
 import AuthDataProvider from "../components/AuthDataContext";
+import { Navigation} from "../components/Navigation"
 import ProfileTable from "../components/ProfileTable";
 import "../styles/Table.css";
 
@@ -25,11 +26,16 @@ render(){
     const { user } = this.state;
         return (
             <div>
+            <div>
+            <Navigation isLoggedIn={true} />
+            </div>
+            <div>
              <h2 className={'greeting'}>Hello, {user.fullName}!</h2>
              <h3 className={'h3'}>Check out the pets added to PetFriendly: </h3>
              <div className={'profileTable'}>
              <ProfileTable />
                 </div>
+            </div>
             </div>
         );
     }

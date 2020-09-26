@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useMemo } from "react";
 import axios from 'axios';
 import Table from '../components/Table';
+import { Navigation } from '../components/Navigation';
 import '../styles/Table.css';
 
 
@@ -96,6 +97,10 @@ function PetProfile (){
 
     return (
         <div>
+        <div>
+        <Navigation isLoggedIn={true} />
+        </div>
+        <br></br>
     <div className={'table'}>
         <Table
         columns={columns}
