@@ -1,6 +1,5 @@
 .table {
     font-size: larger;
-    font-variant: small-caps;
     line-height: 40px;
     -webkit-box-flex: 1;
     -ms-flex: 1 0 auto;
@@ -22,8 +21,8 @@
     margin-top: 15%;
 }
 .profileTable{
+
     font-size: larger;
-    font-variant: small-caps;
     line-height: 40px;
     align-content: stretch;
     -webkit-box-flex: 1;
