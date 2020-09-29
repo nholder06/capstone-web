@@ -19,6 +19,13 @@ it('redirects to login flow when user is not logged in', () => {
   expect(getByText('Login here if you already have an account with us.')).toBeInTheDocument();
 });
 
-//it('redirects to register page when link is clicked', () => {
-//});
+it('redirects to register page when link is clicked', () => {
+});
+
+it('validates email and password for login', () => {
+});
+
+it('if user is authenticated, login button will take user to homepage', () => {
+});
+
 
