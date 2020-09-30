@@ -26,16 +26,14 @@ render(){
     const { user } = this.state;
         return (
             <div>
-            <div>
             <Navigation isLoggedIn={true} />
-            </div>
-            <div>
+            <div className={'container'}>
              <h2 className={'greeting'}>Hello, {user.fullName}!</h2>
              <h3 className={'h3'}>Check out the pets added to PetFriendly: </h3>
              <div className={'profileTable'}>
              <ProfileTable />
                 </div>
-            </div>
+                </div>
             </div>
         );
     }

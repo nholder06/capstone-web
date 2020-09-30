@@ -3,7 +3,7 @@
   padding-top: 50px;
   align-items: stretch; 
   flex-wrap: wrap;
-  height: 100vh;
+  height: 100%;
   align-content: center;
 }
 .header {
@@ -51,20 +51,19 @@
   text-align: center;
 
 }
-
-
+.navBar{
+  padding-left: 0;
+  margin: 0 auto;
+}
 
 .nav {
+  margin: 0 auto;
   font-size: 20px;
   list-style-type: none;
   padding: 0;
   overflow: hidden;
   display: flex;
   float: left;
-}
-
-.hidden{
-  visibility: hidden;
 }
 
 .nav a {
@@ -80,12 +79,6 @@
   color: #3f8cb5;
 }
 
-.scroll {
-  height: 200px;
-  width: 18%;
-  overflow-y: scroll;
-}
-
 .footer {
   background-color:#36273F;
   color: white;
@@ -93,10 +86,6 @@
   padding-top: 20px;
   margin-top: 20px;
   font-size: 12px;
-}
-
-.submitButton {
-  padding-right: 20%;
 }
 
 

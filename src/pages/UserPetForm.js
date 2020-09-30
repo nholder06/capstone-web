@@ -189,6 +189,7 @@ return (
                             />
                             </div>
 
+                            <div className={'space'}></div>
                             <div className={'form-group'}>
                             <TextField
                             name='notes'
@@ -196,12 +197,12 @@ return (
                             label='Notes'
                             value={values.notes}
                             multiline
-                            rows={4}
+                            rows={6}
                             onChange={handleInputChange}
                             />
                            </div>
 
-                            <div className={'form-group'}>
+                            <div >
                             <Button 
                             className={'submit'}
                             color={'primary'}
