@@ -1,6 +1,6 @@
 .table {
     font-size: larger;
-    line-height: 40px;
+    font-family: Arial, Helvetica, sans-serif;
     -webkit-box-flex: 1;
     -ms-flex: 1 0 auto;
     flex: 1 0 auto;
@@ -21,7 +21,7 @@
     margin-top: 15%;
 }
 .profileTable{
-
+    font-family: Arial, Helvetica, sans-serif;
     font-size: larger;
     line-height: 40px;
     align-content: stretch;
@@ -43,14 +43,3 @@
     border-bottom: 1px solid rgba(0, 0, 0, 0.05);
     text-align: center;
 }
-
-.scroll {
-    top: 100;
-    left: 100;
-    behavior: 'smooth';
-  }
-
-  .ReactTable .rt-thead.-headerGroups {
-    background: rgba(0, 0, 0, 0.03);
-    border-bottom: 1px solid rgba(0, 0, 0, 0.05)
-  }

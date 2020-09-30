@@ -69,14 +69,10 @@
 
 .nav a {
   display: flex;
-  color: #8881f2;
+  color: #02375F;
   text-align: left;
   padding: 14px;
   text-decoration: none;
-}
-
-li a:hover {
-  background-color:#282c34;
 }
 
 .submit {
@@ -91,7 +87,7 @@ li a:hover {
 }
 
 .footer {
-  background-color: #4d0c4d;
+  background-color:#36273F;
   color: white;
   padding-left: 20px;
   padding-top: 20px;
@@ -100,10 +96,7 @@ li a:hover {
 }
 
 .submitButton {
-
   padding-right: 20%;
 }
 
-.MuiButton-containedPrimary {
-  background-color: #313968;
-}
+

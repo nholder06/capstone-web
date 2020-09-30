@@ -20,12 +20,22 @@ export default function Table({ columns, data }) {
                 {headerGroups.map(headerGroup => (
                     <tr {...headerGroup.getHeaderGroupProps()}>
                         {headerGroup.headers.map(column => (
-                            <th {...column.getHeaderProps()}>{column.render('Header')}</th>
+                            <th {...column.getHeaderProps()}
+                            style={{
+                                borderBottom: 'solid 3px black',
+                                background: '#02375F',
+                                width: "30px",
+                                color: 'white',
+                                fontWeight: 'bold',
+                                }}>{column.render('Header')}
+                            </th>
                         ))}
                     </tr>
                 ))}
             </thead>
-            <tbody {...getTableBodyProps()}>
+            <tbody {...getTableBodyProps()} style={{
+                                   background: "#AFDCA7",
+                                   fontWeight: 'bold',}}>
                 {rows.map((row, i) => {
                     prepareRow(row);
                     return (

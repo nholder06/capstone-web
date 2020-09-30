@@ -94,7 +94,7 @@ class LoginPage extends React.Component {
                         variant="contained"
                         color="primary"
                         type="submit"
-                        className={'submitButton'}>Login</Button>
+                        className={'submit'}>Login</Button>
                      </div>
                      {error &&
                      <div className={'help-block'}>{error}</div>
