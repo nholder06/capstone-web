@@ -68,23 +68,19 @@
 
 .nav a {
   display: flex;
-  color: #02375F;
+  color: #36273F;
   text-align: left;
   padding: 14px;
   text-decoration: none;
 }
 
-.submit {
-  align-self: center;
-  color: #3f8cb5;
-}
 
 .footer {
   background-color:#36273F;
   color: white;
   padding-left: 20px;
   padding-top: 20px;
-  margin-top: 20px;
+  margin-top: 10%;
   font-size: 12px;
 }
 

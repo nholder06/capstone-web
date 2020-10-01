@@ -5,9 +5,7 @@
   .form {
     display: flex;
     flex-wrap: wrap;
-    align-items: center;
     align-content: space-between;
-    justify-content: center;
     margin-top: 0%;
     flex-direction: row;
     padding-top: 10px;
@@ -42,7 +40,33 @@
     align-items: stretch;
   }
 
-  .submitButton {
-    flex-direction: column;
-    color: #3f8cb5;
+  .login{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-content: space-between;
+    margin-top: 0%;
+    flex-direction: row;
+    padding-top: 10px;
+    margin-left: 25%;
+  }
+  
+  .form-button{
+    align-self: center;
+    padding: 20px;
+  }
+
+  .register{
+    display: flex;
+    flex-wrap: wrap;
+    align-content: center;
+    align-content: space-between;
+    margin-top: 0%;
+    flex-direction: row;
+    padding-top: 10px;
+    margin-left: 13%;
+  }
+
+  .register-button{
+    padding-top: 5%;
   }

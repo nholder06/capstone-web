@@ -58,7 +58,7 @@ class LoginPage extends React.Component {
             <h1 className={'greeting'} >Welcome!</h1>
             <p className={'h3'}>Login here if you already have an account with us.</p>
             <p className={'h3'}><Link to="/register">Don't have an account? Register here. </Link></p>
-            <form autoComplete="off" noValidate className={'form'} name='form-group' onSubmit={this.handleSubmit}>
+            <form autoComplete="off" noValidate className={'login'} onSubmit={this.handleSubmit}>
                
                 <div className={'form-group'}>
                     <TextField
@@ -74,7 +74,7 @@ class LoginPage extends React.Component {
                     }
                 </div>
 
-                <div className={ 'form-group'}>
+                <div className={'form-group'}>
 
                     <TextField
                     label="Password"
@@ -89,12 +89,12 @@ class LoginPage extends React.Component {
                     }
                      </div>
 
-                     <div className='form-group'>
+                     <div className={'form-button'}>
                      <Button
                         variant="contained"
                         color="primary"
                         type="submit"
-                        className={'submit'}>Login</Button>
+                       >Login</Button>
                      </div>
                      {error &&
                      <div className={'help-block'}>{error}</div>
