@@ -96,7 +96,10 @@ function ProfileTable (){
         <Table
         columns={columns} 
         data={data} />
-        
+        {data.length===0 &&
+            <div className={'noData'}>
+        <span>There are no pets to show.</span>
+        </div>}
     </div>
 
     );
